@@ -1,0 +1,250 @@
+E:\NepaliCommunity\NZNA\NZNA\bin\ApplicationInsights.config
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\csc.exe
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\System.Collections.Immutable.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\System.Reflection.Metadata.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\vbc.exe
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe
+E:\NepaliCommunity\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe.config
+E:\NepaliCommunity\NZNA\NZNA\bin\NZNA.dll.config
+E:\NepaliCommunity\NZNA\NZNA\bin\NZNA.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\NZNA.pdb
+E:\NepaliCommunity\NZNA\NZNA\bin\Antlr3.Runtime.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.SqlServer.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Agent.Intercept.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Web.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.ApplicationInsights.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Web.Infrastructure.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Newtonsoft.Json.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Owin.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Helpers.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Mvc.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Optimization.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Razor.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Deployment.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Razor.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\WebGrease.dll
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Web.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.ApplicationInsights.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Helpers.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Mvc.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Optimization.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.Razor.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Deployment.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Razor.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Antlr3.Runtime.pdb
+E:\NepaliCommunity\NZNA\NZNA\bin\Newtonsoft.Json.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.SqlServer.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.xml
+E:\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.csprojResolveAssemblyReference.cache
+E:\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.dll
+E:\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.pdb
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\ApplicationInsights.config
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\csc.exe
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\System.Collections.Immutable.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\System.Reflection.Metadata.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\vbc.exe
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe.config
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\NZNA.dll.config
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\NZNA.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\NZNA.pdb
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Antlr3.Runtime.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.SqlServer.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Agent.Intercept.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Web.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.ApplicationInsights.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Web.Infrastructure.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Newtonsoft.Json.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Owin.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Helpers.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Mvc.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Optimization.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Razor.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Deployment.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Razor.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\WebGrease.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.Web.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.ApplicationInsights.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Helpers.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Mvc.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Optimization.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.Razor.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Deployment.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\System.Web.WebPages.Razor.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Antlr3.Runtime.pdb
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Newtonsoft.Json.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\EntityFramework.SqlServer.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.csprojAssemblyReference.cache
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.csproj.CoreCompileInputs.cache
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.csproj.CopyComplete
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.dll
+G:\Latest Laptop Backup\E Drive\NepaliCommunity\NZNA\NZNA\obj\Debug\NZNA.pdb
+E:\MVC\Community\NZNA\NZNA\bin\ApplicationInsights.config
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\csc.exe
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\System.Collections.Immutable.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\System.Reflection.Metadata.dll
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\vbc.exe
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe
+E:\MVC\Community\NZNA\NZNA\bin\roslyn\VBCSCompiler.exe.config
+E:\MVC\Community\NZNA\NZNA\bin\NZNA.dll.config
+E:\MVC\Community\NZNA\NZNA\bin\NZNA.dll
+E:\MVC\Community\NZNA\NZNA\bin\NZNA.pdb
+E:\MVC\Community\NZNA\NZNA\bin\Antlr3.Runtime.dll
+E:\MVC\Community\NZNA\NZNA\bin\EntityFramework.dll
+E:\MVC\Community\NZNA\NZNA\bin\EntityFramework.SqlServer.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.Agent.Intercept.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.Web.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.ApplicationInsights.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Web.Infrastructure.dll
+E:\MVC\Community\NZNA\NZNA\bin\Newtonsoft.Json.dll
+E:\MVC\Community\NZNA\NZNA\bin\Owin.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Helpers.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Mvc.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Optimization.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Razor.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.Deployment.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.dll
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.Razor.dll
+E:\MVC\Community\NZNA\NZNA\bin\WebGrease.dll
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.DependencyCollector.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.Web.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AI.WindowsServer.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.ApplicationInsights.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Helpers.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Mvc.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Optimization.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.Razor.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.Deployment.xml
+E:\MVC\Community\NZNA\NZNA\bin\System.Web.WebPages.Razor.xml
+E:\MVC\Community\NZNA\NZNA\bin\Antlr3.Runtime.pdb
+E:\MVC\Community\NZNA\NZNA\bin\Newtonsoft.Json.xml
+E:\MVC\Community\NZNA\NZNA\bin\EntityFramework.xml
+E:\MVC\Community\NZNA\NZNA\bin\EntityFramework.SqlServer.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Core.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Facebook.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Cookies.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.OAuth.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Google.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.Twitter.xml
+E:\MVC\Community\NZNA\NZNA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\MVC\Community\NZNA\NZNA\obj\Debug\NZNA.csprojAssemblyReference.cache
+E:\MVC\Community\NZNA\NZNA\obj\Debug\NZNA.csproj.CoreCompileInputs.cache
+E:\MVC\Community\NZNA\NZNA\obj\Debug\NZNA.csproj.CopyComplete
+E:\MVC\Community\NZNA\NZNA\obj\Debug\NZNA.dll
+E:\MVC\Community\NZNA\NZNA\obj\Debug\NZNA.pdb
