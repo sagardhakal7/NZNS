@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@*@using NZNA.Areas.Admin.Models;
+@using NZNA.Models;
+
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var sitesetting = db.Sitesets.ToList().SingleOrDefault();
+}*@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,7 +48,7 @@
         <!-- Main Header -->
         <header class="site-header headerfirst">
             <!-- Header Top -->
-            
+
             <img src="/Contents/images/background/Nepal.png" style="width:100%; margin-top: -1px;">
             <!-- Header Top End -->
             <!--Header-Main-->
@@ -61,7 +68,7 @@
                                             <span class="flaticon-phone-call"></span>
                                         </div>
                                         <div class="hdbox-right">
-                                            <span>Call Us</span>+64 2200000
+                                            <span>Call Us</span>@sitesetting.Phone
                                         </div>
                                     </li>
                                     <li>
@@ -69,7 +76,7 @@
                                             <span class="flaticon-location"></span>
                                         </div>
                                         <div class="hdbox-right">
-                                            <span>Our office</span> Ferndale House, New North Road, Auckland
+                                            <span>Our office</span> @sitesetting.Address
                                         </div>
                                     </li>
                                     <li>
@@ -77,7 +84,7 @@
                                             <span class="flaticon-time"></span>
                                         </div>
                                         <div class="hdbox-right">
-                                            <span>Email</span> contact@nznepalsociety.com
+                                            <span>Email</span> @sitesetting.Email
                                         </div>
                                     </li>
                                 </ul>
@@ -86,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!--Header-Lower-->
             <div class="header-lower">
                 <div class="container">
@@ -105,7 +112,7 @@
                                 <ul class="navigation clearfix">
                                     <li>
                                         <a href="#">Home</a>
-                                       
+
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">About Us</a>
@@ -131,10 +138,10 @@
                                     </li>
                                     <li>
                                         <a href="#">Contact Us</a>
-                                     </li>
+                                    </li>
                                     <li>
                                         <a href="#">Donate</a>
-                                       
+
                                     </li>
                                     <li><a href="contact.html">Resources</a></li>
                                 </ul>
@@ -157,7 +164,7 @@
                         </div>
                         <!--Quote Button-->
                         <div class="btn-outer">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -239,11 +246,9 @@
             <!--End Sticky Header-->
         </header>
         <!-- Main Header end -->
-        <!--Main Slider-->      
-
-       
+        <!--Main Slider-->
         <!--Main Slider  end-->
-       @RenderBody()
+        @RenderBody()
         <!-- footer section -->
         <footer class="footer1">
             <div class="copyright">
@@ -256,9 +261,9 @@
                         <div class="text-right col-sm-4">
                             <div class="social-links clearfix">
                                 <a href="#"><span class="fa fa-facebook-f"></span></a>
-                                </div>
-
                             </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -302,6 +307,9 @@
     <script type="text/javascript" src="~/Contents/js/revolution/extensions/revolution.extension.video.min.js"></script>
     <!-- script JS  -->
     <script src="~/Contents/js/script.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 
 <!-- Mirrored from scriptdaddy.net/graphicrajkumar/gardenart_theme/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Aug 2017 10:54:14 GMT -->

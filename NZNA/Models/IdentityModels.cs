@@ -29,5 +29,20 @@ namespace NZNA.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Siteset> Sitesets { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Album> Albums { get; set; }
+
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Banner> Banners { get; set; }
+
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Aboutpage> Aboutpages { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Saugat> Saugats { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Member> Members { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.PastExComMember> PastExComMembers { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.RelatedLink> RelatedLinks { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Event> Events { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.News> News { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Contact> Contacts { get; set; }
+
     }
 }

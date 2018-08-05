@@ -332,3 +332,12 @@ E:\NZNS\NZNA\obj\Debug\NZNA.csproj.CoreCompileInputs.cache
 E:\NZNS\NZNA\obj\Debug\NZNA.csproj.CopyComplete
 E:\NZNS\NZNA\obj\Debug\NZNA.dll
 E:\NZNS\NZNA\obj\Debug\NZNA.pdb
+E:\NZNS\NZNA\bin\ImageResizer.dll
+E:\NZNS\NZNA\bin\PagedList.dll
+E:\NZNS\NZNA\bin\PagedList.Mvc.dll
+E:\NZNS\NZNA\bin\ImageResizer.xml
+E:\NZNS\NZNA\bin\PagedList.xml
+E:\NZNS\NZNA\bin\PagedList.Mvc.xml
+E:\NZNS\NZNA\obj\Debug\NZNA.Migrations.InitialCreate.resources
+E:\NZNS\NZNA\obj\Debug\NZNA.csproj.GenerateResource.cache
+E:\NZNS\NZNA\obj\Debug\NZNA.Migrations.initial.resources

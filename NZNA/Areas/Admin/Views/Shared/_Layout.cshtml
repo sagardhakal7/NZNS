@@ -1,0 +1,286 @@
+﻿@using Microsoft.AspNet.Identity
+@using NZNA.Areas.Admin.Models;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+
+    <link href="~/AdminDesign/master/assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- PLUGINS CSS -->
+    <link href="~/AdminDesign/master/assets/plugins/weather-icon/css/weather-icons.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/prettify/prettify.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/owl-carousel/owl.theme.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/owl-carousel/owl.transitions.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/chosen/chosen.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/icheck/skins/all.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/datepicker/datepicker.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/validator/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/summernote/summernote.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/markdown/bootstrap-markdown.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/morris-chart/morris.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/c3-chart/c3.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/slider/slider.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/salvattore/salvattore.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/toastr/toastr.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/plugins/fullcalendar/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+
+    <!-- MAIN CSS (REQUIRED ALL PAGE)-->
+    <link href="~/AdminDesign/master/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/css/style.css" rel="stylesheet">
+    <link href="~/AdminDesign/master/assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body class="tooltips">
+
+    <!--
+    ===========================================================
+    BEGIN PAGE
+    ===========================================================
+    -->
+    <div class="wrapper">
+        <!-- BEGIN TOP NAV -->
+        <div class="top-navbar">
+            <div class="top-navbar-inner">
+
+                <!-- Begin Logo brand -->
+                <div class="logo-brand">
+                    <a href="http://www.seekyoursmile.com"><img src="~/Contents/images/logo.png" alt="SeekYourSmile" height="50px"></a>
+                </div>
+                <!-- End Logo brand -->
+
+                <div class="top-nav-content">
+
+                    <!-- Begin button sidebar left toggle -->
+                    <div class="btn-collapse-sidebar-left">
+                        <i class="fa fa-bars"></i>
+                    </div><!-- /.btn-collapse-sidebar-left -->
+                    @using (Html.BeginForm("LogOff", "Account", new { Area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <ul class="nav-user navbar-right">
+                            <li class="dropdown">
+                                <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+                                    @*<img src="~/images/users/@string.Concat(User.Identity.Name,".jpg")" class="avatar img-circle" alt="@User.Identity.Name">*@
+                                    <img src="~/lib/images/pid.jpg" class="avatar img-circle" alt="@User.Identity.Name">
+                                    Hi, <strong>@User.Identity.Name</strong>
+                                </a>
+                                <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
+                                    <li><a href="~/account/manage">Manage Account</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    <!-- End user session nav -->
+                    <!-- Begin Collapse menu nav -->
+                    <div class="collapse navbar-collapse" id="main-fixed-nav">
+                        <!-- Begin nav search form -->
+                        @*<form class="navbar-form navbar-left" method="post" action="~/Home/Search">
+                                @*<form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>*@
+                        <!-- End nav search form -->
+                        @*<ul class="nav navbar-nav navbar-left">
+                                <!-- Begin nav notification -->
+                                <li class="dropdown">
+                                    <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="badge badge-danger icon-count" id="Messagecount"></span>
+                                        <i class="fa fa-bell"></i>
+                                    </a>
+                                    <ul class="dropdown-menu square with-triangle">
+                                        <li>
+                                            <div class="nav-dropdown-heading">
+                                                Notifications
+                                            </div><!-- /.nav-dropdown-heading -->
+                                            <div class="nav-dropdown-content scroll-nav-dropdown">
+                                                <ul id="Messagenotification">
+                                                    @Html.Partial("_MessageNotification")
+                                                </ul>
+                                            </div><!-- /.nav-dropdown-content scroll-nav-dropdown -->
+                                            @*<button class="btn btn-primary btn-square btn-block">See all notifications</button>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>*@
+                    </div><!-- /.navbar-collapse -->
+                    <!-- End Collapse menu nav -->
+                </div><!-- /.top-nav-content -->
+            </div><!-- /.top-navbar-inner -->
+        </div><!-- /.top-navbar -->
+
+        <div class="sidebar-left sidebar-nicescroller">
+            <ul class="sidebar-menu">
+
+                @*<li>
+                        <a href="~/admin/message/">
+                            <i class="fa fa-dashboard icon-sidebar"></i>
+                            Dashboard
+                        </a>
+                    </li>*@
+
+                <li>
+                    <a href="#fakelink">
+                        <i class="fa fa-comment icon-sidebar"></i>
+                        <i class="fa fa-angle-right chevron-icon-sidebar"></i>
+                        @*<span class="label label-success span-sidebar">TOP</span>*@
+                        Manage Website
+                    </a>
+                    <ul class="submenu">
+                        <li>@Html.ActionLink("Site Settings", "index", "Sitesets", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Banner", "index", "Banners", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Home Page", "index", "Homepages", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("About Page", "index", "Aboutpages", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Blog Posts", "index", "Blogposts", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Food Category", "index", "FoodCategories", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Yog Pages", "index", "Yogpages", new { area = "Admin" }, null)</li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div><!-- /.sidebar-left -->
+        <!-- END SIDEBAR LEFT -->
+
+        <div class="page-content">
+            <div class="container-fluid">
+                @RenderBody()
+            </div><!-- /.container-fluid -->
+        </div><!-- /.page-content -->
+    </div><!-- /.wrapper -->
+    <!-- END PAGE CONTENT -->
+    <!-- BEGIN BACK TO TOP BUTTON -->
+    <div id="back-top">
+        <a href="#top"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- END BACK TO TOP -->
+    <!-- END BACK TO TOP -->
+    <!--
+    ===========================================================
+    END PAGE
+    ===========================================================
+    -->
+    <!--
+    ===========================================================
+    Placed at the end of the document so the pages load faster
+    ===========================================================
+    -->
+    <!-- MAIN JAVASRCIPT (REQUIRED ALL PAGE)-->
+    <script src="~/AdminDesign/master/assets/js/jquery.min.js"></script>
+    <script src="~/AdminDesign/master/assets/js/bootstrap.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/retina/retina.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/nicescroll/jquery.nicescroll.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+
+    <!-- PLUGINS -->
+    <script src="~/AdminDesign/master/assets/plugins/skycons/skycons.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/prettify/prettify.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/chosen/chosen.jquery.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/icheck/icheck.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/mask/jquery.mask.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/validator/bootstrapValidator.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/datatable/js/bootstrap.datatable.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/summernote/summernote.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/markdown/markdown.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/markdown/to-markdown.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/markdown/bootstrap-markdown.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/slider/bootstrap-slider.js"></script>
+
+    <script src="~/AdminDesign/master/assets/plugins/toastr/toastr.js"></script>
+
+    <!-- FULL CALENDAR JS -->
+    <script src="~/AdminDesign/master/assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/AdminDesign/master/assets/js/full-calendar.js"></script>
+
+    <!-- EASY PIE CHART JS -->
+    <script src="~/AdminDesign/master/assets/plugins/easypie-chart/easypiechart.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/easypie-chart/jquery.easypiechart.min.js"></script>
+
+    <!-- KNOB JS -->
+    <!--[if IE]>
+    <script type="text/javascript" src="~/AdminDesign/master/assets/plugins/jquery-knob/excanvas.js"></script>
+    <![endif]-->
+    <script src="~/AdminDesign/master/assets/plugins/jquery-knob/jquery.knob.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/jquery-knob/knob.js"></script>
+
+    <!-- FLOT CHART JS -->
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.tooltip.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.resize.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.selection.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.stack.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/flot-chart/jquery.flot.time.js"></script>
+
+    <!-- MORRIS JS -->
+    <script src="~/AdminDesign/master/assets/plugins/morris-chart/raphael.min.js"></script>
+    <script src="~/AdminDesign/master/assets/plugins/morris-chart/morris.min.js"></script>
+
+    <!-- C3 JS -->
+    <script src="~/AdminDesign/master/assets/plugins/c3-chart/d3.v3.min.js" charset="utf-8"></script>
+    <script src="~/AdminDesign/master/assets/plugins/c3-chart/c3.min.js"></script>
+
+    <!-- MAIN APPS JS -->
+    <script src="~/AdminDesign/master/assets/js/apps.js"></script>
+
+    <script src="/Scripts/timeago.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+    $(function() {
+        // Reference the auto-generated proxy for the hub.
+        var chat = $.connection.limsHub;
+        // Create a function that the hub can call back to display messages.
+        chat.client.addnewMessagenotification = function(fromuser, id) {
+            $('#Messagenotification').append('<li class="unread"><a href="/admin/message/messagedetails/' + id + '">'
+                + '<img src="../../images/users/' + fromuser + '.jpg" class="absolute-left-content img-circle" alt="' + fromuser + '">'
+                + '<strong>' + fromuser + '</strong> Sent New Message To You </a><li>');
+            $('#Messagecount').append('!');
+        };
+        $.connection.hub.start().done(function() {
+            $('#sendmessage').click(function() {
+                chat.server.message($('#displayname').val(), $('#message').val());
+                $('#message').val('').focus();
+            });
+        });
+    });
+    </script>
+    <script>
+    jQuery(document).ready(function () {
+        jQuery("abbr.timeago").timeago();
+    });
+    </script>
+
+</body>
+</html>
