@@ -1,0 +1,118 @@
+﻿@model NZNA.Areas.Admin.Models.Siteset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>*@
+
+ @*The Upper Part*@         
+    
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Siteset Details </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li>@Html.ActionLink("Edit This", "Edit", new { /* id = Model.PrimaryKey */ })</li> |
+									<li><a href="~/admin/Sitesets/create/">Create New Siteset</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<div>
+    @*<h4>Siteset</h4>
+    <hr />
+    <dl class="dl-horizontal">*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.Phone)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.Address)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.Email)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+        			@if (Model.ImageUrl != null)
+			  {
+                    <div class="magnific-popup-wrap col-xs-6 col-md-3">
+						<a class="zooming" href="@Model.ImageUrl" title="Image title here">
+							<img src="@Model.ImageUrl.Replace(".jpg","_thumb.jpg")" alt="Image" class="mfp-fade item-gallery img-responsive">
+						</a>
+					</div>
+					<br>
+              }
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FbId)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.FbId)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TwitterId)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.TwitterId)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoogleId)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.GoogleId)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InstagramId)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.InstagramId)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkedinId)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.LinkedinId)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Copyright)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.Copyright)
+				</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SitesetId }) |
+    <a href="/admin/Sitesets/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a>
+</p>

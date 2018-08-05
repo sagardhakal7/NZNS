@@ -1,0 +1,174 @@
+﻿@*@model IEnumerable<NZNA.Areas.Admin.Models.Siteset>*@
+@model PagedList.IPagedList<NZNA.Areas.Admin.Models.Siteset>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+
+    @*@Html.ActionLink("Create New", "Create")*@
+@*The Upper Part*@         
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Siteset Dashboard </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li><a href="~/admin/Sitesets/create/">Create New Siteset</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+@*//The Down Part*@
+@*<div class="form-horizontal" col-md-10>
+<table class="table">*@
+<div class="the-box no-border full">
+    <div class="table-responsive">
+        <table class="table table-th-block">
+  <thead>    
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().Phone)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().Address)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().ImageUrl)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().FbId)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().TwitterId)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().GoogleId)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().InstagramId)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().LinkedinId)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().Copyright)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
+        <th></th>
+    </tr>
+ </thead>
+   <tbody>
+@foreach (var item in Model) {
+    <tr>
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.Phone)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.Address)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.Email)
+		           </td>
+	 
+	       
+		<td>
+		   			  @if (item.ImageUrl != null)
+			  {
+					<div class="magnific-popup-wrap col-xs-6 col-md-3">
+						<a class="zooming" href="@item.ImageUrl" title="Image title here">
+							<img src="@item.ImageUrl.Replace(".jpg","_thumb.jpg")" alt="Image" class="mfp-fade item-gallery img-responsive">
+						</a>
+					</div>
+              }
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.FbId)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.TwitterId)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.GoogleId)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.InstagramId)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.LinkedinId)
+		           </td>
+	 
+	       
+		<td>
+		   				@Html.DisplayFor(modelItem => item.Copyright)
+		           </td>
+	 
+        <td>
+            @* @Html.ActionLink("Edit", "Edit", new { id=item.SitesetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SitesetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SitesetId }) *@
+             @Html.ActionLink(" Edit", "Edit", new {id = item.SitesetId},new {@class = "fa fa-pencil",@style="text-decoration:none;"}) |
+             @Html.ActionLink(" Details", "Details", new {id = item.SitesetId}, new {@class = "fa fa-database", @style="text-decoration:none;"}) |
+             @Html.ActionLink(" Delete", "Delete", new {id = item.SitesetId}, new {@class = "fa fa-trash-o",@style="text-decoration:none;"})
+
+        </td>
+    </tr>
+}
+  </tbody>
+        </table>
+    </div>
+</div>
+
+@*</table>
+</div>*@
+
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model,pageNo => Url.Action("Index",new { pageNo,sortOrder = ViewBag.CurrentSort,currentFiler=ViewBag.CurrentFilter,filtervalue=ViewBag.FilterValue}))
