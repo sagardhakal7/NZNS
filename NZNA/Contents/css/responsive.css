@@ -285,7 +285,7 @@
         left: 0;
     }
     .site-header .btn-outer {
-        border-color: transparent transparent #fdc900;
+        border-color: transparent transparent #ad0f16;
         border-width: 0 0 63px 1px;
     }
     .site-header .btn-outer {
@@ -326,7 +326,7 @@
         z-index: 999;
     }
     .headersecond .bz_search_bar {
-        background-color: #fdc900;
+        background-color: #0d1476;
         color: #fff;
         cursor: pointer;
         float: left;
@@ -347,7 +347,7 @@
         padding-right: 0px;
     }
     .hdbox-left {
-        color: #fdc900;
+        color: #0d1476;
         display: block;
         text-align: center;
         width: 100%;
@@ -483,7 +483,7 @@
     .main-menu .navbar-header .navbar-toggle {
         display: inline-block;
         z-index: 7;
-        border: 1px solid #ecbb00;
+        /*border: 1px solid #0d1476;*/
         float: none;
         margin: 0px 0px 0px 0px;
         border-radius: 0px;
@@ -535,7 +535,7 @@
         right: auto !important;
         top: auto !important;
         width: 100%;
-        background: #fdc900;
+        background: #0d1476;
         -webkit-border-radius: 0px;
         -ms-border-radius: 0px;
         -o-border-radius: 0px;
@@ -568,21 +568,21 @@
     .main-menu .navbar-collapse > .navigation > li > ul > li > ul > li > a {
         padding: 10px 10px !important;
         line-height: 22px;
-        color: #333;
-        background: #fdc900;
+        /*color: #333;*/
+        background: #0d1476;
         text-align: left;
     }
     .main-menu .navbar-collapse > .navigation > li > a:hover,
     .main-menu .navbar-collapse > .navigation > li > a:active,
     .main-menu .navbar-collapse > .navigation > li > a:focus {
-        background: #ecbb00;
+        background: ;
     }
     .main-menu .navbar-collapse > .navigation > li:hover > a,
     .main-menu .navbar-collapse > .navigation > li > ul > li:hover > a,
     .main-menu .navbar-collapse > .navigation > li > ul > li > ul > li:hover > a,
     .main-menu .navbar-collapse > .navigation > li.current > a,
     .main-menu .navbar-collapse > .navigation > li.current-menu-item > a {
-        background: #ecbb00;
+        background: #0d1476;
         color: #000 !important;
     }
     .main-menu .navbar-collapse > .navigation li.dropdown .dropdown-btn {
