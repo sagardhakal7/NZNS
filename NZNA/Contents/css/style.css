@@ -1045,7 +1045,7 @@ li {
 }
 
 .site-header .btn-outer:hover {
-    border-color: transparent transparent #ffae11;
+    border-color: transparent transparent#0d1476;
 }
 
 .site-header.header-style-three .btn-outer .quote-btn {
@@ -4970,7 +4970,7 @@ footer .subscribe_us button:focus {
 
 .sidebar-testimonial .owl-dots .owl-dot.active span,
 .sidebar-testimonial .owl-dots .owl-dot:hover span {
-    background: #ffae11 none repeat scroll 0 0;
+    background:#0d1476 none repeat scroll 0 0;
 }
 
 
