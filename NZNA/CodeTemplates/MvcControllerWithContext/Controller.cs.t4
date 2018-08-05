@@ -1,0 +1,636 @@
+﻿<#@ template language="C#" HostSpecific="True" Debug="True" #>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ ScaffoldingAssembly Processor="ScaffoldingAssemblyLoader" #>
+<#
+string routePrefix;
+if (String.IsNullOrEmpty(AreaName)) 
+{
+    routePrefix = ControllerRootName;
+}
+else
+{
+    routePrefix = AreaName + "/" + ControllerRootName;
+}
+#>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Microsoft.AspNet.Scaffolding.Core.Metadata" #>
+
+<#@ parameter type="System.String" name="ControllerName" #>
+<#@ parameter type="System.String" name="ControllerRootName" #>
+<#@ parameter type="System.String" name="Namespace" #>
+<#@ parameter type="System.String" name="AreaName" #>
+<#@ parameter type="System.String" name="ContextTypeName" #>
+<#@ parameter type="System.String" name="ModelTypeName" #>
+<#@ parameter type="System.String" name="ModelVariable" #>
+<#@ parameter type="Microsoft.AspNet.Scaffolding.Core.Metadata.ModelMetadata" name="ModelMetadata" #>
+<#@ parameter type="System.String" name="EntitySetVariable" #>
+<#@ parameter type="System.Boolean" name="UseAsync" #>
+<#@ parameter type="System.Boolean" name="IsOverpostingProtectionRequired" #>
+<#@ parameter type="System.String" name="BindAttributeIncludeText" #>
+<#@ parameter type="System.String" name ="OverpostingWarningMessage" #>
+<#@ parameter type="System.Collections.Generic.HashSet<System.String>" name="RequiredNamespaces" #>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.IO;
+<# if (UseAsync) { #>
+using System.Threading.Tasks;
+<# } #>
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using PagedList;
+using Microsoft.AspNet.Identity;
+<# foreach (var namespaceName in RequiredNamespaces) { #>
+using <#= namespaceName #>;
+<# } #>
+<# bool HasHTMLControl = false;
+   bool imageUrlFound = false;
+   bool LinkUrlFound = false;
+ #>
+
+namespace <#= Namespace #>
+
+{
+<#
+    var contextTypeName = ContextTypeName;
+    var entitySetName = ModelMetadata.EntitySetName;
+    var entitySetVar = EntitySetVariable ?? (String.IsNullOrEmpty(entitySetName) ? entitySetName : (entitySetName.Substring(0, length:1).ToLowerInvariant() + entitySetName.Substring(1)));
+    var primaryKeyName = ModelMetadata.PrimaryKeys[0].PropertyName;
+    var primaryKeyShortTypeName = ModelMetadata.PrimaryKeys[0].ShortTypeName;
+    var primaryKeyDefaultValue = ModelMetadata.PrimaryKeys[0].DefaultValue;
+    var primaryKeyType = ModelMetadata.PrimaryKeys[0].TypeName;
+    var primaryKeyNullableTypeName = GetNullableTypeName(primaryKeyType, primaryKeyShortTypeName);
+    var lambdaVar = ModelVariable[0];
+    var relatedProperties = ModelMetadata.RelatedEntities.ToDictionary(item => item.AssociationPropertyName);
+
+    string bindAttribute;
+    if (IsOverpostingProtectionRequired)
+    {
+        bindAttribute = String.Format("[Bind(Include = \"{0}\")] ", BindAttributeIncludeText);
+    }
+    else
+    {
+        bindAttribute = String.Empty;
+    }
+#>
+	[Authorize]
+    public class <#= ControllerName #> : Controller
+    
+	{
+		
+        private <#= ContextTypeName #> db = new <#= ContextTypeName #>();
+
+        // GET: <#= routePrefix #>
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Index()
+<# } else { #>
+        public ActionResult Index(string sortingOrder, string searchData, string filterValue, int? pageNo)
+<# } #>
+        {
+<#  var includeExpressions = "";
+        includeExpressions = String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
+#>
+<# if(!String.IsNullOrEmpty(includeExpressions)) { #>
+            var <#= entitySetVar #> = db.<#= entitySetName #><#= includeExpressions #>;
+<#		if (UseAsync) { #>
+            return View(await <#= entitySetVar #>.ToListAsync());
+<#		} else { #>
+            
+			
+			
+			ViewBag.CurrentSortOrder = sortingOrder;
+            
+			<# 
+			
+			string LL;
+			
+			imageUrlFound = false;
+			LinkUrlFound = false;
+			int i;
+            string GetVariables = bindAttribute.Replace("[Bind(Include = ","").Replace(")]","").Replace(",CreatedDate,CreatedBy,ModifiedDate,ModifiedBy","").ToString();
+			GetVariables = GetVariables.Substring(1);
+			GetVariables = GetVariables.Substring(0,(GetVariables.Length)-2);
+			GetVariables = GetVariables.Replace(",DelFlg","");
+			string CurrentID = entitySetName.Substring(0,(entitySetName.Length)-1) + "Id,";
+			GetVariables = GetVariables.Replace(CurrentID ,"");
+			string[] splitString = null;
+			splitString = GetVariables.Split(',');
+			int LastItem = splitString.Length;
+			LastItem -=1;
+            foreach (var strI in splitString)
+            {#>
+				<#if (strI == "ImageUrl"){ #>
+					<# imageUrlFound = true; #>
+				<# } #>
+				<#if (strI == "LinkUrl"){ #>
+					<# LinkUrlFound = true; #>
+				<# } #>
+				ViewBag.Sorting<#=strI#> = String.IsNullOrEmpty(sortingOrder) ? "<#=strI#>" : "";
+				<#if (strI == "Description"){#>
+					<# HasHTMLControl = true; #>
+				<# } #>
+            <#}#>
+			
+			
+			//<#= entitySetVar #> = from item in db.<#= entitySetName #> select item;
+			// Below Line for Community or else omit above line
+			string username = User.Identity.GetUserName();
+			
+			if (username.ToLower() == "sagar@teamrockmandu.com") {
+				<#= entitySetVar #> = from item in db.<#= entitySetName #> select item;
+				}
+			else
+			{
+				<#= entitySetVar #> = from item in db.<#= entitySetName #>.Where(a => a.User.Email == username) select item;
+			}
+			if ((searchData != null && searchData.ToString() != "")|| (filterValue !=null && filterValue.ToString() != ""))
+			{
+			if (filterValue != null)
+                {
+                    searchData = filterValue;}
+                else
+                {
+                    pageNo = 1;
+                }
+				 <#= entitySetVar #> =
+                <#= entitySetVar #>.Where(
+                    item =>
+            <#  foreach (var strI in splitString){#>
+				<# bool isId = false; #>
+				<#string AA = strI.ToString() ;#>
+				<#int ContainsId = AA.IndexOf("Id");#>
+				<#if (ContainsId >= 1) {#>
+					<# isId = true;  #>
+			<#	} #>
+
+
+				<# if ((strI.ToString() !=  splitString[LastItem])) { #>
+							<# if ((!strI.ToLower().Contains("date")) && (!strI.ToLower().Contains("imageurl")) && (isId == false) && (!strI.ToLower().Contains("active")) && (!strI.ToLower().Contains("elete")))  {#>
+								item.<#=strI#>.ToUpper().Contains(searchData.ToUpper()) ||
+							<#}#>
+							<#} else { #>
+								<# if (!strI.ToLower().Contains("date")) {#>
+
+									item.<#=strI#>.ToUpper().Contains(searchData.ToUpper()));
+
+								<# } else { #>
+								);
+								<#}#>
+							<#}#>
+					<#}#>					
+					}
+			ViewBag.FilterValue = searchData;
+			 switch (sortingOrder)
+            {
+			<# 
+            foreach (var strI in splitString)
+            {#>
+			case "<#=strI#>":
+					<# if (strI.ToLower().Contains("date")) {#>
+						<#= entitySetVar #> = <#= entitySetVar #>.OrderBy(item => item.<#=strI#>);	
+					<# } else { #>
+						<#= entitySetVar #> = <#= entitySetVar #>.OrderByDescending(item => item.<#=strI#>);
+                    <#}#>
+					break;
+            <#}#>
+			default:
+                    <#= entitySetVar #> = <#= entitySetVar #>.OrderBy(item => item.<#=splitString[0]#>);
+                    break;
+			}
+			const int totalPageSize = 10;
+			var noOfPage = (pageNo ?? 1);
+			return View(<#= entitySetVar #>.ToPagedList(noOfPage ,totalPageSize ));
+			//return View(<#= entitySetVar #>.ToList());
+
+
+
+
+
+
+<#		} #>
+<# } else { #>
+<#		if (UseAsync) { #>
+            return View(await db.<#= entitySetName #><#= includeExpressions #>.ToListAsync());
+<#		} else { #>
+            ViewBag.CurrentSortOrder = sortingOrder;
+            
+			<# 
+			
+			string LL;
+			
+			imageUrlFound = false;
+			LinkUrlFound = false;
+			int i;
+            string GetVariables = bindAttribute.Replace("[Bind(Include = ","").Replace(")]","").Replace(",CreatedDate,CreatedBy,ModifiedDate,ModifiedBy","").ToString();
+			GetVariables = GetVariables.Substring(1);
+			GetVariables = GetVariables.Substring(0,(GetVariables.Length)-2);
+			GetVariables = GetVariables.Replace(",DelFlg","");
+			string CurrentID = entitySetName.Substring(0,(entitySetName.Length)-1) + "Id,";
+			GetVariables = GetVariables.Replace(CurrentID ,"");
+			string[] splitString = null;
+			splitString = GetVariables.Split(',');
+			int LastItem = splitString.Length;
+			LastItem -=1;
+            foreach (var strI in splitString)
+            {#>
+				<#if (strI == "ImageUrl"){ #>
+					<# imageUrlFound = true; #>
+				<# } #>
+				<#if (strI == "LinkUrl"){ #>
+					<# LinkUrlFound = true; #>
+				<# } #>
+				ViewBag.Sorting<#=strI#> = String.IsNullOrEmpty(sortingOrder) ? "<#=strI#>" : "";
+				<#if (strI == "Description"){#>
+					<# HasHTMLControl = true; #>
+				<# } #>
+            <#}#>
+			
+			
+			var items = from item in db.<#= entitySetName #> select item;
+			if ((searchData != null && searchData.ToString() != "")|| (filterValue !=null && filterValue.ToString() != ""))
+			{
+			if (filterValue != null)
+                {
+                    searchData = filterValue;}
+                else
+                {
+                    pageNo = 1;
+                }
+				 items =
+                items.Where(
+                    item =>
+            <#  foreach (var strI in splitString){#>
+				<# if (strI.ToString() !=  splitString[LastItem]) { #>
+						
+							<# if ((!strI.ToLower().Contains("date")) && (!strI.ToLower().Contains("imageurl")))  {#>
+								item.<#=strI#>.ToUpper().Contains(searchData.ToUpper()) ||
+							<#}#>
+							<#} else { #>
+								<# if (!strI.ToLower().Contains("date")) {#>
+									item.<#=strI#>.ToUpper().Contains(searchData.ToUpper()));
+								<# } else { #>
+								);
+								<#}#>
+							<#}#>
+						
+			<#}#>
+			}
+			ViewBag.FilterValue = searchData;
+			 switch (sortingOrder)
+            {
+			<# 
+            foreach (var strI in splitString)
+            {#>
+			case "<#=strI#>":
+					<# if (strI.ToLower().Contains("date")) {#>
+						items = items.OrderBy(item => item.<#=strI#>);	
+					<# } else { #>
+						items = items.OrderByDescending(item => item.<#=strI#>);
+                    <#}#>
+					break;
+            <#}#>
+			default:
+                    items = items.OrderBy(item => item.<#=splitString[0]#>);
+                    break;
+			}
+			const int totalPageSize = 10;
+			var noOfPage = (pageNo ?? 1);
+			return View(items.ToPagedList(noOfPage ,totalPageSize ));
+<#		} #>
+<# } #>
+        }
+
+        // GET: <#= routePrefix #>/Details/5
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Details(<#= primaryKeyNullableTypeName #> id)
+<# } else { #>
+        public ActionResult Details(<#= primaryKeyNullableTypeName #> id)
+<# } #>
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+<# if (UseAsync) { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+<# } else { #>
+           <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+			//Below Lines added for Community
+            var userid = User.Identity.GetUserId();
+            var <#= ModelVariable #>a = from item in db.<#= entitySetName #> where (item.<#= ModelVariable #>Id == id) select item;
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Include(a => a.CreatedBy);
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Where(a => a.CreatedBy == userid);
+            if (<#= ModelVariable #>a.Count() == 0)
+            {
+                <#= ModelVariable #> = null;
+            }
+
+
+
+
+
+<# } #>
+            if (<#= ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+            return View(<#= ModelVariable #>);
+        }
+
+        // GET: <#= routePrefix #>/Create
+        public ActionResult Create()
+        {
+<# foreach (var property in relatedProperties.Values) { #>
+            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>");
+<# } #>
+            return View();
+        }
+
+        // POST: <#= routePrefix #>/Create
+<# if (IsOverpostingProtectionRequired) {
+    foreach (var line in OverpostingWarningMessage.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)) { 
+#>
+        // <#= line #>
+<# } } #>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		<# if (HasHTMLControl == true){ #>
+			[ValidateInput(false)] 
+		<#}#>
+
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Create(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
+<# } else { #>
+        <# if ( imageUrlFound == true){ #>
+			public ActionResult Create(<#= bindAttribute.Replace(",CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,VerifiedDate,VerifiedBy,DelFlg","") #><#= ModelTypeName #> <#= ModelVariable #>, HttpPostedFileBase ImageUrl)
+		<# } else if (LinkUrlFound == true) { #>
+			public ActionResult Create(<#= bindAttribute.Replace(",CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,VerifiedDate,VerifiedBy,DelFlg","") #><#= ModelTypeName #> <#= ModelVariable #>, HttpPostedFileBase LinkUrl)
+		<# } else { #>
+			public ActionResult Create(<#= bindAttribute.Replace(",CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,VerifiedDate,VerifiedBy,DelFlg","") #><#= ModelTypeName #> <#= ModelVariable #>)
+		<# } #>
+
+<# } #>
+        {
+            if (ModelState.IsValid)
+            {
+					db.Entry(<#= ModelVariable #>).State = EntityState.Added;
+					<#= ModelVariable #>.CreatedBy = User.Identity.GetUserId();
+                    <#= ModelVariable #>.CreatedDate = DateTime.Now;
+<# if(!String.IsNullOrEmpty(primaryKeyType) && String.Equals("System.Guid", primaryKeyType, StringComparison.OrdinalIgnoreCase)) { #>
+                
+				<#= ModelVariable #>.<#= primaryKeyName #> = Guid.NewGuid();
+				<#= ModelVariable #>.UserId = User.Identity.GetUserId();
+					
+<# } #>
+        <# if ( imageUrlFound == true){ #>       
+			 if (ImageUrl != null)
+                {
+                    string pathToCreate = "~/Images/<#=ModelVariable#>";
+                    if (!Directory.Exists(Server.MapPath(pathToCreate)))
+                    {
+                        //Now you know it is ok, create it
+                        Directory.CreateDirectory(Server.MapPath(pathToCreate));
+                    }
+                    string extension = Path.GetExtension(ImageUrl.FileName);
+                    string fileName = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                    string id = Guid.NewGuid().ToString();
+                    string imageUrl = "/Images/<#=ModelVariable#>/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+
+                    ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
+                    string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
+                    DestinationPath += "\\" + fileName + id ;
+					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
+                 "width=200;height=200;format=jpg;mode=max"));
+					i.Build();
+					
+					<#= ModelVariable #>.ImageUrl = imageUrl;
+	                    
+						db.<#= entitySetName #>.Add(<#=ModelVariable#>);
+
+                }
+                else
+                {
+					db.<#= entitySetName #>.Add(<#=ModelVariable#>);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+		<# } else { #>			    
+				db.<#= entitySetName #>.Add(<#= ModelVariable #>);
+		<# } #>
+
+<# if (UseAsync) {#>
+                await db.SaveChangesAsync();
+<# } else { #>
+                db.SaveChanges();
+<# } #>
+                return RedirectToAction("Index");
+            }
+
+<# foreach (var property in relatedProperties.Values) { #>
+            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
+<# } #>
+            return View(<#= ModelVariable #>);
+        }
+
+        // GET: <#= routePrefix #>/Edit/5
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Edit(<#= primaryKeyNullableTypeName #> id)
+<# } else { #>
+        
+		public ActionResult Edit(<#= primaryKeyNullableTypeName #> id)
+
+<# } #>
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+<# if (UseAsync) { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+<# } else { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+			var userid = User.Identity.GetUserId();
+            var <#= ModelVariable #>a = from item in db.<#= entitySetName #> where (item.<#= ModelVariable #>Id == id) select item;
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Include(a => a.CreatedBy);
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Where(a => a.CreatedBy == userid);
+            if (<#= ModelVariable #>a.Count() == 0)
+            {
+                <#= ModelVariable #> = null;
+            }
+<# } #>
+            if (<#= ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+<# foreach (var property in relatedProperties.Values) { #>
+            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
+<# } #>
+            return View(<#= ModelVariable #>);
+        }
+
+        // POST: <#= routePrefix #>/Edit/5
+<# if (IsOverpostingProtectionRequired) {
+    foreach (var line in OverpostingWarningMessage.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)) { 
+#>
+        // <#= line #>
+<# } } #>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		<# if (HasHTMLControl == true){ #>
+			[ValidateInput(false)] 
+		<#}#>
+
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Edit(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
+<# } else { #>
+		<# if ( imageUrlFound ==true){ #>
+			public ActionResult Edit(<#= bindAttribute.Replace(",ModifiedDate,ModifiedBy,VerifiedDate,VerifiedBy","") #><#= ModelTypeName #> <#= ModelVariable #>,HttpPostedFileBase ImageUrl)
+		<# } else if (LinkUrlFound == true) { #>
+		public ActionResult Edit(<#= bindAttribute.Replace(",ModifiedDate,ModifiedBy,VerifiedDate,VerifiedBy,DelFlg","") #><#= ModelTypeName #> <#= ModelVariable #>, HttpPostedFileBase LinkUrl)
+		<# }else { #>
+			public ActionResult Edit(<#= bindAttribute.Replace(",ModifiedDate,ModifiedBy","") #><#= ModelTypeName #> <#= ModelVariable #>)
+		<# } #>
+
+		
+<# } #>
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(<#= ModelVariable #>).State = EntityState.Modified;
+				
+				<#= ModelVariable #>.ModifiedBy = User.Identity.GetUserId();
+                    <#= ModelVariable #>.ModifiedDate = DateTime.Now;
+				<# if ( imageUrlFound == true){ #>       
+				if (ImageUrl != null)
+                {
+                    string pathToCreate = "~/Images/<#=ModelVariable#>";
+                    if (!Directory.Exists(Server.MapPath(pathToCreate)))
+                    {
+                        //Now you know it is ok, create it
+                        Directory.CreateDirectory(Server.MapPath(pathToCreate));
+                    }
+                    string extension = Path.GetExtension(ImageUrl.FileName);
+                    string fileName = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                    string id = Guid.NewGuid().ToString();
+                    string imageUrl = "/Images/<#=ModelVariable#>/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+
+                    ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
+					string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
+                    DestinationPath += "\\" + fileName + id ;
+					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
+					"width=200;height=200;format=jpg;mode=max"));
+					i.Build();
+					<#= ModelVariable #>.ImageUrl = imageUrl;
+                }
+			<# } #>
+<# if (UseAsync) { #>
+                await db.SaveChangesAsync();
+<# } else { #>
+	                db.SaveChanges();
+<# } #>
+                return RedirectToAction("Index");
+            }
+<# foreach (var property in relatedProperties.Values) { #>
+            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
+<# } #>
+            return View(<#= ModelVariable #>);
+        }
+
+        // GET: <#= routePrefix #>/Delete/5
+<# if (UseAsync) { #>
+        public async Task<ActionResult> Delete(<#= primaryKeyNullableTypeName #> id)
+<# } else { #>
+        public ActionResult Delete(<#= primaryKeyNullableTypeName #> id)
+<# } #>
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+<# if (UseAsync) { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+<# } else { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+			var userid = User.Identity.GetUserId();
+            var <#= ModelVariable #>a = from item in db.<#= entitySetName #> where (item.<#= ModelVariable #>Id == id) select item;
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Include(a => a.CreatedBy);
+            <#= ModelVariable #>a = <#= ModelVariable #>a.Where(a => a.CreatedBy == userid);
+            if (<#= ModelVariable #>a.Count() == 0)
+            {
+                <#= ModelVariable #> = null;
+            }
+
+<# } #>
+            if (<#= ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+            return View(<#= ModelVariable #>);
+        }
+
+        // POST: <#= routePrefix #>/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+<# if (UseAsync) { #>
+        public async Task<ActionResult> DeleteConfirmed(<#= primaryKeyShortTypeName #> id)
+<# } else { #>
+        public ActionResult DeleteConfirmed(<#= primaryKeyShortTypeName #> id)
+<# } #>
+        {
+<# if (UseAsync) { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+<# } else { #>
+            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+<# } #>
+            db.<#= entitySetName #>.Remove(<#= ModelVariable #>);
+<# if (UseAsync) { #>
+            await db.SaveChangesAsync();
+<# } else { #>
+            db.SaveChanges();
+<# } #>
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}
+<#+
+// This function converts the primary key short type name to its nullable equivalent when possible. This is required to make
+// sure that an HTTP 400 error is thrown when the user tries to access the edit, delete, or details action with null values.
+    string GetNullableTypeName(string typeName, string shortTypeName)
+    {
+        // The exceptions are caught because if for any reason the type is user defined, then the short type name will be used.
+        // In that case the user will receive a server error if null is passed to the edit, delete, or details actions.
+        Type primaryKeyType = null;
+        try
+        {
+            primaryKeyType = Type.GetType(typeName);
+        }
+        catch
+        {
+        }
+        if (primaryKeyType != null && (primaryKeyType.IsPrimitive || IsGuid(typeName)))
+        {
+            return shortTypeName + "?";
+        }
+        return shortTypeName;
+    }
+
+    bool IsGuid(string typeName) {
+        return String.Equals("System.Guid", typeName, StringComparison.OrdinalIgnoreCase);
+    }
+#>
