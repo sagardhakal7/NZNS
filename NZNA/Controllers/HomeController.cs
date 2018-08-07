@@ -16,9 +16,26 @@ namespace NZNA.Controllers
         {
             return View();
         }
-
-
-
+        public ActionResult AllMembers()
+        {
+            return View();
+        }
+        public ActionResult Events()
+        {
+            return View();
+        }
+        public ActionResult ExecutiveCommitte()
+        {
+            return View();
+        }
+        public ActionResult PastExecutive()
+        {
+            return View();
+        }
+        public ActionResult Resources()
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

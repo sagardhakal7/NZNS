@@ -1217,6 +1217,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Shared\_Saugat.cshtml" />
     <Content Include="Views\Shared\_LocalBusiness.cshtml" />
+    <Content Include="Views\Home\ExecutiveCommitte.cshtml" />
+    <Content Include="Views\Home\PastExecutive.cshtml" />
+    <Content Include="Views\Home\AllMembers.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\Resources.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
