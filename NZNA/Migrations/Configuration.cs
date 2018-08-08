@@ -10,6 +10,7 @@ namespace NZNA.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "NZNA.Models.ApplicationDbContext";
         }
 

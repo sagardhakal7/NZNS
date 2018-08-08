@@ -1,0 +1,149 @@
+﻿@model NZNA.Areas.Admin.Models.Member
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@*<h2>Delete</h2>*@
+
+@*<h3>Are you sure you want to delete this?</h3>*@
+<div>
+@*    <h4>Member</h4>
+    <hr />*@
+ @*The Upper Part*@         
+    
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i>Delete from Member  </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li><a href="~/admin/Member/create/">Create New Member</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Name)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Position)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+							@if (Model.ImageUrl != null)
+				  {
+						<div class="magnific-popup-wrap col-xs-6 col-md-3">
+							<a class="zooming" href="@Model.ImageUrl" title="Image title here">
+								<img src="@Model.ImageUrl.Replace(".jpg","_thumb.jpg")" alt="Image" class="mfp-fade item-gallery img-responsive">
+							</a>
+						</div>
+				  }
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsExcom)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.IsExcom)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linkedin)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Linkedin)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Facebook)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Email)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Mobile)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Landline)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Landline)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Address)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.DOB)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UniqueId)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.UniqueId)
+			        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

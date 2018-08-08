@@ -39,6 +39,16 @@ namespace NZNA.Areas.Admin.Models
         public string Title { get; set; }
         public string Tagline { get; set; }
         public string ImageUrl { get; set; }
+       
+    }
+    public class Gallery : MandatoryFields
+    {
+        public int GalleryId { get; set; }
+        public string Title { get; set; }
+        public string Tagline { get; set; }
+        public string ImageUrl { get; set; }
+        public string AlbumId { get; set; }
+        public virtual Album Album { get; set; }
     }
 
     public class Aboutpage : MandatoryFields

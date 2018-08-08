@@ -1,0 +1,86 @@
+﻿@model NZNA.Areas.Admin.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@*<h2>Delete</h2>*@
+
+@*<h3>Are you sure you want to delete this?</h3>*@
+<div>
+@*    <h4>Contact</h4>
+    <hr />*@
+ @*The Upper Part*@         
+    
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i>Delete from Contact  </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li><a href="~/admin/Contact/create/">Create New Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Name)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Phone)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Email)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Subject)
+			        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+							@Html.DisplayFor(model => model.Message)
+			        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@model NZNA.Areas.Admin.Models.Saugat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>*@
+
+ @*The Upper Part*@         
+    
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Saugat Details </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li>@Html.ActionLink("Edit This", "Edit", new { /* id = Model.PrimaryKey */ })</li> |
+									<li><a href="~/admin/Saugats/create/">Create New Saugat</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<div>
+    @*<h4>Saugat</h4>
+    <hr />
+    <dl class="dl-horizontal">*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.Title)
+				</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+           
+		    @Html.Raw(Model.Description)
+        		</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkUrl)
+        </dt>
+
+        <dd>
+        			@Html.DisplayFor(model => model.LinkUrl)
+				</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaugatId }) |
+    <a href="/admin/Saugats/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a>
+</p>

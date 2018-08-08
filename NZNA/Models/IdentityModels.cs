@@ -43,6 +43,9 @@ namespace NZNA.Models
         public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Event> Events { get; set; }
         public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.News> News { get; set; }
         public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Contact> Contacts { get; set; }
+        public System.Data.Entity.DbSet<NZNA.Areas.Admin.Models.Gallery> Galleries { get; set; }
+
+
 
     }
 }
