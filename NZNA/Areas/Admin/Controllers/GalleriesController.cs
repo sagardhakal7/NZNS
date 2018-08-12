@@ -30,7 +30,7 @@ namespace NZNA.Areas.Admin.Controllers
    
         public ActionResult Index(string sortingOrder, string searchData, string filterValue, int? pageNo, RouteConfig routeConfiguration, RouteCollection routeCollection)
         {
-        {
+        
             var gallery = db.Galleries.Include(asd => asd.Album);
 
 
