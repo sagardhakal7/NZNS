@@ -8,32 +8,32 @@
 
 
 
-															@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @*The Upper Part*@         
-    
-        <div class="row">
-                <div class="mail-apps-wrap">
-                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
-                        <div class="col-sm-6">
-                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Gallery Create </h1>
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            <div class="btn-group">
-                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-cog"></i>
-                                </button>
-                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
-									<li><a href="~/admin/Gallerys/create/">Create New Gallery</a></li>
-								</ul>
-                            </div>
-                        </div>
+    @*The Upper Part*@
+
+    <div class="row">
+        <div class="mail-apps-wrap">
+            <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                <div class="col-sm-6">
+                    <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Gallery Create </h1>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <div class="btn-group">
+                        <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                            <li><a href="~/admin/Gallerys/create/">Create New Gallery</a></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
         </div>
-    
-@*//The Down Part*@
+    </div>
+
+    @*//The Down Part*@
     <div class="form-horizontal col-md-10">
         <h4>Gallery</h4>
         <hr />
@@ -41,8 +41,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                					@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-								
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+
 
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
@@ -51,8 +51,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Tagline, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                					@Html.EditorFor(model => model.Tagline, new { htmlAttributes = new { @class = "form-control" } })
-								
+                @Html.EditorFor(model => model.Tagline, new { htmlAttributes = new { @class = "form-control" } })
+
 
                 @Html.ValidationMessageFor(model => model.Tagline, "", new { @class = "text-danger" })
             </div>
@@ -61,8 +61,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                					<input name="ImageUrl" id="ImageUrl" class="form-control" type="file" />
-								
+                <input name="ImageUrl" id="ImageUrl" class="form-control" type="file" />
+
 
                 @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
             </div>
@@ -71,8 +71,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AlbumId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                					@Html.EditorFor(model => model.AlbumId, new { htmlAttributes = new { @class = "form-control" } })
-								
+                @Html.EditorFor(model => model.Album.Title, new { htmlAttributes = new { @class = "form-control" } })
+               @* @Html.DropDownListFor(model => model.Album.AlbumId, new SelectList(ViewBag.Album, "AlbumID", "Title"), new { @class = 'form-control' })*@
 
                 @Html.ValidationMessageFor(model => model.AlbumId, "", new { @class = "text-danger" })
             </div>
@@ -81,18 +81,18 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create New Gallery" class="btn btn-success" />
-               <a href="/admin/Gallerys/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a>
+                <a href="/admin/Gallerys/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a>
             </div>
         </div>
     </div>
 }
 
 <div>
-  @*  @Html.ActionLink("Back to List", "Index") *@
+    @*  @Html.ActionLink("Back to List", "Index") *@
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-	   <script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 

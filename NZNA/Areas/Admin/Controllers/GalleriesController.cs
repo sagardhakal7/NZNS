@@ -12,6 +12,7 @@ using PagedList;
 using Microsoft.AspNet.Identity;
 using NZNA.Areas.Admin.Models;
 using NZNA.Models;
+using System.Web.Routing;
 
 namespace NZNA.Areas.Admin.Controllers
 
@@ -22,19 +23,25 @@ namespace NZNA.Areas.Admin.Controllers
 	{
 		
         private ApplicationDbContext db = new ApplicationDbContext();
+        private RouteConfig routeConfig = new RouteConfig();
+        private RouteCollection routeCol = new RouteCollection();
 
         // GET: Admin/Galleries
-        public ActionResult Index(string sortingOrder, string searchData, string filterValue, int? pageNo)
+   
+        public ActionResult Index(string sortingOrder, string searchData, string filterValue, int? pageNo, RouteConfig routeConfiguration, RouteCollection routeCollection)
         {
-            ViewBag.CurrentSortOrder = sortingOrder;
-            
-															ViewBag.SortingGalleryId = String.IsNullOrEmpty(sortingOrder) ? "GalleryId" : "";
-				            												ViewBag.SortingTitle = String.IsNullOrEmpty(sortingOrder) ? "Title" : "";
-				            												ViewBag.SortingTagline = String.IsNullOrEmpty(sortingOrder) ? "Tagline" : "";
-				            																					ViewBag.SortingImageUrl = String.IsNullOrEmpty(sortingOrder) ? "ImageUrl" : "";
-				            												ViewBag.SortingAlbumId = String.IsNullOrEmpty(sortingOrder) ? "AlbumId" : "";
-				            			
-			
+            this.routeConfig = routeConfiguration;
+            this.routeCol = routeCollection;
+
+            var routeInfo = Request.RawUrl;
+
+            ViewBag.CurrentSortOrder = sortingOrder;         
+			ViewBag.SortingGalleryId = String.IsNullOrEmpty(sortingOrder) ? "GalleryId" : "";
+			ViewBag.SortingTitle = String.IsNullOrEmpty(sortingOrder) ? "Title" : "";
+			ViewBag.SortingTagline = String.IsNullOrEmpty(sortingOrder) ? "Tagline" : "";
+				            					ViewBag.SortingImageUrl = String.IsNullOrEmpty(sortingOrder) ? "ImageUrl" : "";
+			ViewBag.SortingAlbumId = String.IsNullOrEmpty(sortingOrder) ? "AlbumId" : "";
+				            				
 			var items = from item in db.Galleries select item;
 			if ((searchData != null && searchData.ToString() != "")|| (filterValue !=null && filterValue.ToString() != ""))
 			{
@@ -46,21 +53,8 @@ namespace NZNA.Areas.Admin.Controllers
                     pageNo = 1;
                 }
 				 items =
-                items.Where(
-                    item =>
-            										
-																			
-													
-															item.Title.ToUpper().Contains(searchData.ToUpper()) ||
-																				
-													
-															item.Tagline.ToUpper().Contains(searchData.ToUpper()) ||
-																				
-													
-																				
-																								item.AlbumId.ToUpper().Contains(searchData.ToUpper()));
-																					
-						}
+            items.Where( item =>item.Title.ToUpper().Contains(searchData.ToUpper()) || item.Tagline.ToUpper().Contains(searchData.ToUpper()) || item.AlbumId.ToUpper().Contains(searchData.ToUpper()));
+	}
 			ViewBag.FilterValue = searchData;
 			 switch (sortingOrder)
             {
@@ -120,7 +114,9 @@ namespace NZNA.Areas.Admin.Controllers
         // GET: Admin/Galleries/Create
         public ActionResult Create()
         {
-            return View();
+            // var customer = db.Customer.Include(c => c.MembershipType); //using include for eager loading
+            var galleries = db.Galleries.Include(o => o.Album);
+            return View(galleries.ToList());
         }
 
         // POST: Admin/Galleries/Create
