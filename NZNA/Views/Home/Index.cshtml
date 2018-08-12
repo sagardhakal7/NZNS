@@ -1,14 +1,15 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@Html.Partial("_banner")
+@using System.Web.Routing;
+  @Html.Partial("_banner")
 <div class="welcome-sec">
     <div class="container">
         <div class="row">
             @Html.Partial("_Saugat")
             <div class="col-lg-6 col-md-4 col-sm-6">
                 <div class="weltext">
-                    <h2>Welcome to   <span>New Zealand Nepal Society!</span></h2>
+                    <h2>Welcome to <span>New Zealand Nepal Society!</span></h2>
                     <p class="midtext">Namaste and Kia Ora!</p>
                     <p>The ascent of Mt. Everest by Sir Edmund Hillary and Tenzing Norgay on Friday 29 May 1953 has contributed to establish a benchmark to bring the two countries together intimately, resulting to close cooperation not only on the governmental level but also individually and sentimentally. New Zealand and Nepal are partners in trade, tourism, academic and professional fields. Number of Nepalis residing in New Zealand has gradually increased since 1980’s. <a href="#">Read More...</a></p>
                   

@@ -17,11 +17,11 @@ using System.Web.Routing;
 namespace NZNA.Areas.Admin.Controllers
 
 {
-	[Authorize]
+    [Authorize]
     public class GalleriesController : Controller
-    
-	{
-		
+
+    {
+
         private ApplicationDbContext db = new ApplicationDbContext();
         private RouteConfig routeConfig = new RouteConfig();
         private RouteCollection routeCol = new RouteCollection();
@@ -30,56 +30,74 @@ namespace NZNA.Areas.Admin.Controllers
    
         public ActionResult Index(string sortingOrder, string searchData, string filterValue, int? pageNo, RouteConfig routeConfiguration, RouteCollection routeCollection)
         {
-            this.routeConfig = routeConfiguration;
-            this.routeCol = routeCollection;
+        {
+            var gallery = db.Galleries.Include(asd => asd.Album);
+
 
             var routeInfo = Request.RawUrl;
 
             ViewBag.CurrentSortOrder = sortingOrder;         
-			ViewBag.SortingGalleryId = String.IsNullOrEmpty(sortingOrder) ? "GalleryId" : "";
-			ViewBag.SortingTitle = String.IsNullOrEmpty(sortingOrder) ? "Title" : "";
-			ViewBag.SortingTagline = String.IsNullOrEmpty(sortingOrder) ? "Tagline" : "";
-				            					ViewBag.SortingImageUrl = String.IsNullOrEmpty(sortingOrder) ? "ImageUrl" : "";
-			ViewBag.SortingAlbumId = String.IsNullOrEmpty(sortingOrder) ? "AlbumId" : "";
-				            				
-			var items = from item in db.Galleries select item;
-			if ((searchData != null && searchData.ToString() != "")|| (filterValue !=null && filterValue.ToString() != ""))
-			{
-			if (filterValue != null)
+            ViewBag.SortingGalleryId = String.IsNullOrEmpty(sortingOrder) ? "GalleryId" : "";
+            ViewBag.SortingTitle = String.IsNullOrEmpty(sortingOrder) ? "Title" : "";
+            ViewBag.SortingTagline = String.IsNullOrEmpty(sortingOrder) ? "Tagline" : "";
+            ViewBag.SortingImageUrl = String.IsNullOrEmpty(sortingOrder) ? "ImageUrl" : "";
+            ViewBag.SortingAlbumId = String.IsNullOrEmpty(sortingOrder) ? "AlbumId" : "";
+
+
+            var items = from item in db.Galleries select item;
+            if ((searchData != null && searchData.ToString() != "") || (filterValue != null && filterValue.ToString() != ""))
+            {
+                if (filterValue != null)
                 {
-                    searchData = filterValue;}
+                    searchData = filterValue;
+                }
                 else
                 {
                     pageNo = 1;
                 }
-				 items =
-            items.Where( item =>item.Title.ToUpper().Contains(searchData.ToUpper()) || item.Tagline.ToUpper().Contains(searchData.ToUpper()) || item.AlbumId.ToUpper().Contains(searchData.ToUpper()));
-	}
-			ViewBag.FilterValue = searchData;
-			 switch (sortingOrder)
+                items =
+               items.Where(
+                   item =>
+
+
+
+                                                           item.Title.ToUpper().Contains(searchData.ToUpper()) ||
+
+
+                                                           item.Tagline.ToUpper().Contains(searchData.ToUpper()) ||
+
+
+
+                                                                                               item.AlbumId.ToUpper().Contains(searchData.ToUpper()));
+
+            }
+            ViewBag.FilterValue = searchData;
+            switch (sortingOrder)
             {
-						case "GalleryId":
-											items = items.OrderByDescending(item => item.GalleryId);
-                    					break;
-            			case "Title":
-											items = items.OrderByDescending(item => item.Title);
-                    					break;
-            			case "Tagline":
-											items = items.OrderByDescending(item => item.Tagline);
-                    					break;
-            			case "ImageUrl":
-											items = items.OrderByDescending(item => item.ImageUrl);
-                    					break;
-            			case "AlbumId":
-											items = items.OrderByDescending(item => item.AlbumId);
-                    					break;
-            			default:
+                case "GalleryId":
+                    items = items.OrderByDescending(item => item.GalleryId);
+                    break;
+                case "Title":
+                    items = items.OrderByDescending(item => item.Title);
+                    break;
+                case "Tagline":
+                    items = items.OrderByDescending(item => item.Tagline);
+                    break;
+                case "ImageUrl":
+                    items = items.OrderByDescending(item => item.ImageUrl);
+                    break;
+                case "AlbumId":
+                    items = items.OrderByDescending(item => item.AlbumId);
+                    //Where(x => x.AlbumId == Album.);
+                    break;
+                default:
                     items = items.OrderBy(item => item.GalleryId);
                     break;
-			}
-			const int totalPageSize = 10;
-			var noOfPage = (pageNo ?? 1);
-			return View(items.ToPagedList(noOfPage ,totalPageSize ));
+            }
+            const int totalPageSize = 10;
+            var noOfPage = (pageNo ?? 1);
+            //return View(items.ToPagedList(noOfPage, totalPageSize));
+            return View(gallery.ToList());
         }
 
         // GET: Admin/Galleries/Details/5
@@ -89,8 +107,8 @@ namespace NZNA.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           Gallery gallery = db.Galleries.Find(id);
-			//Below Lines added for Community
+            Gallery gallery = db.Galleries.Find(id);
+            //Below Lines added for Community
             var userid = User.Identity.GetUserId();
             var gallerya = from item in db.Galleries where (item.GalleryId == id) select item;
             gallerya = gallerya.Include(a => a.CreatedBy);
@@ -114,7 +132,7 @@ namespace NZNA.Areas.Admin.Controllers
         // GET: Admin/Galleries/Create
         public ActionResult Create()
         {
-            // var customer = db.Customer.Include(c => c.MembershipType); //using include for eager loading
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Title");
             var galleries = db.Galleries.Include(o => o.Album);
             return View(galleries.ToList());
         }
@@ -124,17 +142,17 @@ namespace NZNA.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		
-        			public ActionResult Create([Bind(Include = "GalleryId,Title,Tagline,ImageUrl,AlbumId,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Gallery gallery, HttpPostedFileBase ImageUrl)
-		
+
+        public ActionResult Create([Bind(Include = "GalleryId,Title,Tagline,ImageUrl,AlbumId,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Gallery gallery, HttpPostedFileBase ImageUrl)
+
         {
             if (ModelState.IsValid)
             {
-					db.Entry(gallery).State = EntityState.Added;
-					gallery.CreatedBy = User.Identity.GetUserId();
-                    gallery.CreatedDate = DateTime.Now;
-               
-			 if (ImageUrl != null)
+                db.Entry(gallery).State = EntityState.Added;
+                gallery.CreatedBy = User.Identity.GetUserId();
+                gallery.CreatedDate = DateTime.Now;
+
+                if (ImageUrl != null)
                 {
                     string pathToCreate = "~/Images/gallery";
                     if (!Directory.Exists(Server.MapPath(pathToCreate)))
@@ -149,23 +167,23 @@ namespace NZNA.Areas.Admin.Controllers
 
                     ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
                     string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
-                    DestinationPath += "\\" + fileName + id ;
-					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
+                    DestinationPath += "\\" + fileName + id;
+                    ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension, DestinationPath + "_thumb.jpg", new ImageResizer.ResizeSettings(
                  "width=200;height=200;format=jpg;mode=max"));
-					i.Build();
-					
-					gallery.ImageUrl = imageUrl;
-	                    
-						db.Galleries.Add(gallery);
+                    i.Build();
+
+                    gallery.ImageUrl = imageUrl;
+
+                    db.Galleries.Add(gallery);
 
                 }
                 else
                 {
-					db.Galleries.Add(gallery);
+                    db.Galleries.Add(gallery);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-		
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -174,8 +192,8 @@ namespace NZNA.Areas.Admin.Controllers
         }
 
         // GET: Admin/Galleries/Edit/5
-        
-		public ActionResult Edit(int? id)
+
+        public ActionResult Edit(int? id)
 
         {
             if (id == null)
@@ -183,7 +201,7 @@ namespace NZNA.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Gallery gallery = db.Galleries.Find(id);
-			var userid = User.Identity.GetUserId();
+            var userid = User.Identity.GetUserId();
             var gallerya = from item in db.Galleries where (item.GalleryId == id) select item;
             gallerya = gallerya.Include(a => a.CreatedBy);
             gallerya = gallerya.Where(a => a.CreatedBy == userid);
@@ -203,19 +221,19 @@ namespace NZNA.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		
-					public ActionResult Edit([Bind(Include = "GalleryId,Title,Tagline,ImageUrl,AlbumId,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Gallery gallery,HttpPostedFileBase ImageUrl)
-		
-		
+
+        public ActionResult Edit([Bind(Include = "GalleryId,Title,Tagline,ImageUrl,AlbumId,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Gallery gallery, HttpPostedFileBase ImageUrl)
+
+
         {
             if (ModelState.IsValid)
             {
                 db.Entry(gallery).State = EntityState.Modified;
-				
-				gallery.ModifiedBy = User.Identity.GetUserId();
-                    gallery.ModifiedDate = DateTime.Now;
-				       
-				if (ImageUrl != null)
+
+                gallery.ModifiedBy = User.Identity.GetUserId();
+                gallery.ModifiedDate = DateTime.Now;
+
+                if (ImageUrl != null)
                 {
                     string pathToCreate = "~/Images/gallery";
                     if (!Directory.Exists(Server.MapPath(pathToCreate)))
@@ -229,14 +247,14 @@ namespace NZNA.Areas.Admin.Controllers
                     string imageUrl = "/Images/gallery/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
 
                     ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
-					string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
-                    DestinationPath += "\\" + fileName + id ;
-					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
-					"width=200;height=200;format=jpg;mode=max"));
-					i.Build();
-					gallery.ImageUrl = imageUrl;
+                    string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
+                    DestinationPath += "\\" + fileName + id;
+                    ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension, DestinationPath + "_thumb.jpg", new ImageResizer.ResizeSettings(
+                    "width=200;height=200;format=jpg;mode=max"));
+                    i.Build();
+                    gallery.ImageUrl = imageUrl;
                 }
-				                db.SaveChanges();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(gallery);
@@ -250,7 +268,7 @@ namespace NZNA.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Gallery gallery = db.Galleries.Find(id);
-			var userid = User.Identity.GetUserId();
+            var userid = User.Identity.GetUserId();
             var gallerya = from item in db.Galleries where (item.GalleryId == id) select item;
             gallerya = gallerya.Include(a => a.CreatedBy);
             gallerya = gallerya.Where(a => a.CreatedBy == userid);

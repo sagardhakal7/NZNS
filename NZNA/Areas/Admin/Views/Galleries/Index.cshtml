@@ -1,5 +1,5 @@
-﻿@*@model IEnumerable<NZNA.Areas.Admin.Models.Gallery>*@
-@model PagedList.IPagedList<NZNA.Areas.Admin.Models.Gallery>
+﻿@model IEnumerable<NZNA.Areas.Admin.Models.Gallery>
+@*@model PagedList.IPagedList<NZNA.Areas.Admin.Models.Gallery>*@
 @using PagedList.Mvc
 
 @{
@@ -87,7 +87,7 @@
 	 
 	       
 		<td>
-		   				@Html.DisplayFor(modelItem => item.AlbumId)
+		   				@Html.DisplayFor(modelItem => item.Album.Title)
 		           </td>
 	 
         <td>
@@ -110,5 +110,5 @@
 </div>*@
 
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model,pageNo => Url.Action("Index",new { pageNo,sortOrder = ViewBag.CurrentSort,currentFiler=ViewBag.CurrentFilter,filtervalue=ViewBag.FilterValue}))
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model,pageNo => Url.Action("Index",new { pageNo,sortOrder = ViewBag.CurrentSort,currentFiler=ViewBag.CurrentFilter,filtervalue=ViewBag.FilterValue}))*@

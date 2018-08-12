@@ -138,6 +138,15 @@ namespace NZNA.Areas.Admin.Models
 
     }
 
+    public class Sponsor : MandatoryFields
+    {
+        public int SponsorId { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string ImageUrl { get; set; }
+        public string Tagline { get; set; }
+    }
 
 
     public class Contact : MandatoryFields
