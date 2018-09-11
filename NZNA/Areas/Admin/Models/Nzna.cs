@@ -85,6 +85,23 @@ namespace NZNA.Areas.Admin.Models
         public string UniqueId { get; set; }
     }
 
+    public class CurrentExComMember : MandatoryFields
+    {
+        public int CurrentExComMemberId { get; set; }
+        public string Name { get; set; }
+        public string Position { get; set; }
+        public string ImageUrl { get; set; }
+        public string Year { get; set; }
+        public string Linkedin { get; set; }
+        public string Facebook { get; set; }
+        public string Email { get; set; }
+        public string Mobile { get; set; }
+        public string Landline { get; set; }
+        public string Address { get; set; }
+        public string DOB { get; set; }
+        public string UniqueId { get; set; }
+    }
+
     public class PastExComMember : MandatoryFields
     {
         public int PastExComMemberId { get; set; }

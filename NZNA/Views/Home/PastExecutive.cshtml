@@ -1,5 +1,11 @@
-﻿@{
+﻿@using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var pastmember = db.PastExComMembers.Where(x=>x.DelFlg==false).ToList();
+}
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Past Members";
 }
 
 <section class="cart-page-area sec-padding">
@@ -18,24 +24,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach(var items in pastmember)
+                                {
                                 <tr>
                                     <td class="t-center">
-                                        2016-2017
+                                        @items.Year
                                     </td>
                                     -
-                                    <td class="t-center name"><a href="#">President</a></td>
-                                    <td class="t-center name"><a href="#">Name Here</a></td>
+                                    <td class="t-center name"><a href="#">@items.Position</a></td>
+                                    <td class="t-center name"><a href="#">@items.Name</a></td>
 
                                 </tr>
-                                <tr>
-                                    <td class="t-center">
-                                        2015-2016
-                                    </td>
-                                    -
-                                    <td class="t-center name"><a href="#">Vice President</a></td>
-                                    <td class="t-center name"><a href="#">Name Here</a></td>
-
-                                </tr>
+                                }
+                                
+                                
 
                             </tbody>
                         </table>
