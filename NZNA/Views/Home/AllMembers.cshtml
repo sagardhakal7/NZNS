@@ -1,5 +1,11 @@
-﻿@{
+﻿@using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var members = db.Members.Where(x => x.DelFlg == false).ToList();
+}
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "All Members";
 }
 
 
@@ -22,24 +28,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="t-center name">
-                                        1
-                                    </td>
-                                    <td class="t-center name"><a href="#">Full name Here</a></td>
-                                    <td class="t-center name"><a href="#">Email Address</a></td>
-                                    <td class="t-center name">Physical Address</td>
+                                
+                                @foreach (var items in members)
+                                {
+                                    var i = 1;
 
-                                </tr>
-                                <tr>
-                                    <td class="t-center name">
-                                        2
-                                    </td>
-                                    <td class="t-center name"><a href="#">Full name Here</a></td>
-                                    <td class="t-center name"><a href="#">Email Address</a></td>
-                                    <td class="t-center name">Physical Address</td>
+                                    <tr>
+                                        <td class="t-center name">
+                                            @i
+                                        </td>
+                                        <td class="t-center name"><a href="#">@items.Name</a></td>
+                                        <td class="t-center name"><a href="#">@items.Email</a></td>
+                                        <td class="t-center name">@items.Address</td>
+                                        @i++
+                                    </tr>
+                                }
 
-                                </tr>
+
 
                             </tbody>
                         </table>
