@@ -83,7 +83,7 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
-    color: #fbca00;
+    color: #0d1476;
 }
 
 a:hover,
@@ -201,7 +201,7 @@ li {
 }
 
 .btn-two:hover {
-    color: #fbca00;
+    color: #0d1476;
     border-color: #0d1476;
     background: none;
     color: #0d1476;
@@ -213,18 +213,18 @@ li {
     line-height: 24px;
     text-transform: firsttopcase;
     background: none;
-    color: #fbca00;
+    color: #0d1476;
     font-size: 14px;
     font-weight: 500;
-    border: 2px solid #fbca00;
+    border: 2px solid #0d1476;
     border-radius: 2px;
     font-family: 'Roboto', sans-serif;
 }
 
 .btn-three:hover {
     color: #ffffff;
-    border-color: #fbca00;
-    background: #fbca00;
+    border-color: #0d1476;
+    background: #0d1476;
 }
 
 .bggray {
@@ -480,7 +480,7 @@ li {
 }
 
 .midium-title span {
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .preloader {
@@ -530,7 +530,7 @@ li {
 
 .scroll-to-top:hover {
     color: #ffffff;
-    background: #fbca00;
+    background: #0d1476;
 }
 
 
@@ -766,7 +766,7 @@ li {
 }
 
 .header-main-box .nav-outer .search-box-btn:hover {
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .main-menu {
@@ -1085,7 +1085,7 @@ li {
 }
 
 .social-links-one a:hover {
-    background: #fbca00;
+    background: #0d1476;
     color: #ffffff;
 }
 
@@ -1110,8 +1110,8 @@ li {
 }
 
 .social-links-two a:hover {
-    background: #fbca00;
-    border-color: #fbca00;
+    background: #0d1476;
+    border-color: #0d1476;
     color: #ffffff;
 }
 
@@ -1136,8 +1136,8 @@ li {
 }
 
 .social-links-three a:hover {
-    background: #fbca00;
-    border-color: #fbca00;
+    background: #0d1476;
+    border-color: #0d1476;
     color: #ffffff;
 }
 
@@ -3367,7 +3367,7 @@ li {
 .default-form input:focus,
 .default-form select:focus,
 .default-form textarea:focus {
-    border-color: #fbca00 !important;
+    border-color: #0d1476 !important;
     background-color: rgba(255, 255, 255, 0.50) !important;
 }
 
@@ -3520,7 +3520,7 @@ li {
     font-size: 24px;
     text-transform: firsttopcase;
     font-weight: 700;
-    color: #fbca00;
+    color: #0d1476;
 }
 
 
@@ -3925,14 +3925,14 @@ footer .subscribe_us button:focus {
 
 .work-item h4 {
     font-size: 14px;
-    color: #fbca00;
+    color: #0d1476;
     font-weight: 500;
     text-transform: firsttopcase;
     margin-bottom: 5px;
 }
 
 .work-item h4 a {
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .work-item h3 {
@@ -3982,8 +3982,8 @@ footer .subscribe_us button:focus {
 
 .latest-works-section .owl-controls .owl-nav [class*="owl-"]:hover {
     color: #ffffff;
-    background: #fbca00;
-    border-color: #fbca00;
+    background: #0d1476;
+    border-color: #0d1476;
 }
 
 
@@ -4311,7 +4311,7 @@ footer .subscribe_us button:focus {
 }
 
 .project_cost a {
-    background: #fbca00;
+    background: #0d1476;
     color: #272727;
     padding: 10px 20px;
     border-radius: 3px;
@@ -4461,7 +4461,7 @@ footer .subscribe_us button:focus {
 }
 
 .sidebar .search-box .form-group input:focus {
-    border-color: #fbca00;
+    border-color: #0d1476;
 }
 
 .sidebar .search-box .form-group button {
@@ -4481,7 +4481,7 @@ footer .subscribe_us button:focus {
 
 .sidebar .search-box .form-group input:focus + button,
 .sidebar .search-box .form-group button:hover {
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .sidebar .popular-posts .post {
@@ -4675,7 +4675,7 @@ footer .subscribe_us button:focus {
 
 .sidebar .latest-tweets .owl-prev:hover,
 .sidebar .latest-tweets .owl-next:hover {
-    color: #fbca00 !important;
+    color: #0d1476 !important;
 }
 
 .sidebar .latest-tweets a {
@@ -4683,7 +4683,7 @@ footer .subscribe_us button:focus {
 }
 
 .sidebar .latest-tweets a:hover {
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .sidebar .medium-title {
@@ -5217,7 +5217,7 @@ cite {
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .vision-section .right-content-side .desc-text {
@@ -5252,7 +5252,7 @@ cite {
 }
 
 .accordion-box.style-two .block.active-block {
-    border-color: #fbca00;
+    border-color: #0d1476;
 }
 
 .accordion-box .block:last-child {
@@ -5337,13 +5337,13 @@ cite {
 
 .accordion-box .block .acc-btn.active,
 .accordion-box .block .acc-btn.active .icon-outer {
-    background: #fbca00;
+    background: #0d1476;
     color: #000;
 }
 
 .accordion-box.style-two .block .acc-btn.active {
     color: #ffffff;
-    background: #fbca00;
+    background: #0d1476;
 }
 
 .accordion-box.style-two .block .acc-btn.active .icon-outer {
@@ -5624,7 +5624,7 @@ Project Detail
 }
 
 .shop-page-area .inner-shop-top-right ul > li:hover a i {
-    color: #fbca00
+    color: #0d1476
 }
 
 .shop-page-area .inner-shop-top-right ul > li > a > i {
@@ -5786,7 +5786,7 @@ Project Detail
 }
 
 .product-box1 .product-content-holder h3 a:hover {
-    color: #fbca00 -webkit-transition: all 0.5s ease-out;
+    color: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -5806,7 +5806,7 @@ Project Detail
 }
 
 .product-box1 .product-content-holder span {
-    color: #fbca00 font-size: 20px;
+    color: #0d1476 font-size: 20px;
     font-weight: 600;
 }
 
@@ -5899,7 +5899,7 @@ Project Detail
 }
 
 .product-box2 .media-body .product-box2-content h3 a:hover {
-    color: #fbca00 -webkit-transition: all 0.5s ease-out;
+    color: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -5928,7 +5928,7 @@ Project Detail
     font-size: 20px;
     display: block;
     margin-bottom: 20px;
-    color: #fbca00 font-weight: 600;
+    color: #0d1476 font-weight: 600;
 }
 
 .product-box2 .media-body .product-box2-content p {
@@ -6124,7 +6124,7 @@ Project Detail
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
-    color: #fbca00;
+    color: #0d1476;
 }
 
 .shop-page-area .inner-shop-details .inner-product-details-right .inner-product-details-cart li a.button {
@@ -6248,7 +6248,7 @@ Project Detail
 }
 
 .shop-page-area .inner-shop-details .product-details-tab-area ul .active a {
-    color: #fbca00 text-decoration: none;
+    color: #0d1476 text-decoration: none;
 }
 
 .shop-page-area .inner-shop-details .product-details-tab-area ul .active:last-child {
@@ -6290,7 +6290,7 @@ Project Detail
     width: 34px;
     height: 32px;
     border-radius: 0;
-    border: 1px solid #fbca00 padding: 0;
+    border: 1px solid #0d1476 padding: 0;
     line-height: 23px;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -6341,7 +6341,7 @@ Project Detail
 }
 
 .product-tags li a {
-    color: #fbca00 letter-spacing: 3px;
+    color: #0d1476 letter-spacing: 3px;
     text-transform: uppercase;
     display: block;
     padding: 5px 16px;
@@ -6354,7 +6354,7 @@ Project Detail
 }
 
 .product-tags li:hover {
-    border: 1px solid #fbca00 background: #fbca00 -webkit-transition: all 0.5s ease-out;
+    border: 1px solid #0d1476 background: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -6392,7 +6392,7 @@ Project Detail
 }
 
 .categories ul li a:hover {
-    color: #fbca00 -webkit-transition: all 0.5s ease-out;
+    color: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -6431,7 +6431,7 @@ Project Detail
 }
 
 .archives ul li a:hover {
-    color: #fbca00 -webkit-transition: all 0.5s ease-out;
+    color: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -6441,7 +6441,7 @@ Project Detail
 .archives ul li a i {
     margin-right: 10px;
     font-size: 16px;
-    color: #fbca00
+    color: #0d1476
 }
 
 .archives ul li span {
@@ -6496,7 +6496,7 @@ Project Detail
 }
 
 .best-seller-box li .media .media-body h3 a:hover {
-    color: #fbca00 -webkit-transition: all 0.5s ease-out;
+    color: #0d1476 -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -6522,7 +6522,7 @@ Project Detail
 }
 
 .best-seller-box li .media .media-body p {
-    color: #fbca00
+    color: #0d1476
 }
 
 .best-seller-box li .media .media-body p span {

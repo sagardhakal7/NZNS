@@ -1,6 +1,8 @@
-﻿@{
+﻿@model NZNA.Areas.Admin.Models.Aboutpage
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <div class="welcome-sec">
     <div class="container">
@@ -10,41 +12,38 @@
                 <div class="weltext">
                     <h2>Welcome to   <span>New Zealand Nepal Society!</span></h2>
                     <p class="midtext">Namaste and Kia Ora!</p>
-                    <p>The ascent of Mt. Everest by Sir Edmund Hillary and Tenzing Norgay on Friday 29 May 1953 has contributed to establish a benchmark to bring the two countries together intimately, resulting to close cooperation not only on the governmental level but also individually and sentimentally. New Zealand and Nepal are partners in trade, tourism, academic and professional fields. Number of Nepalis residing in New Zealand has gradually increased since 1980’s.</p>
-                    <p>With the patronage of Sir Edmund Hillary, the New Zealand Nepal Society (NZNS), an incorporated society, is established on 30 August 1995 in Auckland, New Zealand. The NZNS is a non-profit organisation supported by voluntary services of its members. The members of NZNS live in different parts of New Zealand, mainly Auckland. NZNS is a multicultural and multi-ethnic organisation represented by various ethnic people of New Zealand and Nepal, namely Sherpa, Gurung, Kiwi, Brahman, Chhetri, Newa, Rai and others. As a member of various Ethnic Organisations of New Zealand, NZNS plays an active role to promote ethnic harmony in the country. </p>
-                    <h3>Objective</h3>
-                    <p> The objectives of the New Zealand Nepal Society are</p>
-                   <ul class="flowerlist">
-                        <li>to support and cooperate among the individuals of Nepalis descent on matters of</li>
-                        <li>common concern in New Zealand preserving Nepalis social and cultural heritage</li>
-                        <li>to promote harmony and understanding among all members and other ethnic</li>
-                        <li>groups in New Zealand</li>
-                        <li>to promote educational, environmental and social services by various activities</li>
-                     
-                    </ul>
-                    <div class="shopping-cart-form">
-                        <div class="shopping-cart-form-right">
-                            <div class="payment-button">
-                                <a href="#">Current Executive Members</a>
-                                <a href="#">Past Executive Members</a>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="login-social">
-                            <ul>
-                                <li> <b><a class="fb" href="#">Current Executive Members >></a> </b></li>
-                                <li> <b><a class="gp" href="#"><< Past Executive Members</a> </b></li>
+                    @try
+                    {
+                        @Model.Description
+                    }
+                    catch
+                    {
+                        <p>No Description</p>
+                    }
 
-                            </ul>
+                    @*<div class="shopping-cart-form">
+            <div class="shopping-cart-form-right">
+                <div class="payment-button">
+                    <a href="/home/ExecutiveCommitte">Current Executive Members</a>
+                    <a href="/home/PastExecutive">Past Executive Members</a>
+                </div>
+            </div>
+        </div>*@
+                    <div class="login-social">
+                        <ul>
+                            <li> <b><a class="fb" href="/home/ExecutiveCommitte">Current Executive Members >></a> </b></li>
+                            <li> <b><a class="gp" href="/home/PastExecutive"><< Past Executive Members</a> </b></li>
 
-                        </div>
+                        </ul>
+
                     </div>
-                
-                
+                </div>
+
+
             </div>
             @Html.Partial("_LocalBusiness")
 
-            
+
         </div>
 
     </div>

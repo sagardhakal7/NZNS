@@ -1,4 +1,8 @@
-﻿
+﻿@using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var sponsors = db.Sponsors.ToList();
+}
 <div class="col-lg-3 col-md-4 col-sm-6">
     <aside class="sidebar">
         <div class="widget sidebar-widget styled-nav">
@@ -7,36 +11,16 @@
             </div>
             <nav class="nav-outer">
                 <ul>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hvr-shutter-in-horizontal" href="#">
-                            <b>Eagle Eye Limited</b> <br /> Phone: 0000000000
-                        </a>
-                    </li>
+                    @foreach (var items in sponsors)
+                    {
+                        <li>
+                            <a class="hvr-shutter-in-horizontal" href="#">
+                                <b>@items.Name</b> <br /> Phone: @items.Phone
+                            </a>
+                        </li>
+                    }
+
+
                 </ul>
             </nav>
         </div>

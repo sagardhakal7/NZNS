@@ -1,170 +1,43 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var members = db.Members.Where(x => x.IsExcom == "True").ToList();
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Executive Committe";
+}
+
 
 <section class="ourteam ourteampage bggray sec-padding">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team1.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
+
+            @foreach (var items in members)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="teamwrp">
+                        <div class="teamimg figure">
+                            <img src="@items.ImageUrl" alt="@items.Name">
+                            <div class="imagemask">
+                                <div class="project-info vert-mdl">
+                                    <nav>
+                                        <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
+                                        <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Justin W. Tuck</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team2.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
+                        <div class="teaminfo">
+                            <h3>@items.Name</h3>
+                            <p>@items.Position</p>
                         </div>
                     </div>
-                    <div class="teaminfo">
-                        <h3>Michale John</h3>
-                        <p>Gardener</p>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team3.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Kathryn D. Grace</h3>
-                        <p>Senior Worker</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team4.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Pedro C. Vinson</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team5.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>James Obrien</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team6.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Shamia Afroz</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team7.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Sarah McNeal</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="teamwrp">
-                    <div class="teamimg figure">
-                        <img src="~/Contents/images/resource/team8.jpg" alt="image">
-                        <div class="imagemask">
-                            <div class="project-info vert-mdl">
-                                <nav>
-                                    <a href="#" class="navicon"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="navicon"><i class="fa fa-envelope"></i></a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="teaminfo">
-                        <h3>Angle Mithila</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
+            }
+
+
         </div>
     </div>
 </section>
