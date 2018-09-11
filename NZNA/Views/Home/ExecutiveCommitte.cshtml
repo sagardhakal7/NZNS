@@ -1,7 +1,7 @@
 ﻿@using NZNA.Models;
 @{ 
     ApplicationDbContext db = new ApplicationDbContext();
-    var members = db.Members.Where(x => x.IsExcom == "True").ToList();
+    var excommembers = db.CurrentExComMembers.ToList();
 }
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
 
-            @foreach (var items in members)
+            @foreach (var items in excommembers)
             {
                 <div class="col-md-3 col-sm-6">
                     <div class="teamwrp">
