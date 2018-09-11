@@ -1,13 +1,18 @@
-﻿using System;
+﻿using NZNA.Areas.Admin.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NZNA.Models;
 
 namespace NZNA.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -38,9 +43,29 @@ namespace NZNA.Controllers
         }
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Contact ([Bind(Include = "ContactId,Name,Phone,Email,Subject,Message,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Contact contact)
+
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(contact).State = EntityState.Added;
+                contact.CreatedBy = "32d11990-beb5-4bac-b952-4a08c9e78a8b";
+                contact.CreatedDate = DateTime.Now;
+
+                db.Contacts.Add(contact);
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(contact);
         }
     }
 }
