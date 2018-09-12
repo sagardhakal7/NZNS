@@ -1,0 +1,106 @@
+﻿@model NZNA.Areas.Admin.Models.Sponsor
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+
+
+															@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+	@Html.HiddenFor(model => model.CreatedBy)
+	 @Html.HiddenFor(model => model.CreatedDate)
+        <div class="row">
+                <div class="mail-apps-wrap">
+                    <div class="the-box bg-success no-border no-margin heading col-sm-12">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-envelope icon-lg icon-circle icon-bordered"></i> Edit Sponsor </h1>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu success pull-right square margin-list text-left" role="menu">
+                                    <li><a href="~/admin/Sponsor/create/">Create New Sponsor</a></li>
+									<li><a href="/admin/Sponsors/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+@*//The Down Part*@
+    <div class="form-horizontal col-md-10">
+        <h4>Sponsor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.SponsorId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+						  
+					@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+				                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+						  
+					@Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+				                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+						  
+					@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+				                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+									@Html.HiddenFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+					<input name="ImageUrl" id="ImageUrlKo" class="form-control" type="file" />
+				                @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tagline, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+						  
+					@Html.EditorFor(model => model.Tagline, new { htmlAttributes = new { @class = "form-control" } })
+				                @Html.ValidationMessageFor(model => model.Tagline, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save Sponsor" class="btn btn-success" />
+				<a href="/admin/Sponsors/index"> <input type="button" value="Back To List" class="btn btn-danger" /><a>
+                @*<input type="button" value="Back To List" class="btn btn-danger" />*@
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+	   <script src="~/Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+

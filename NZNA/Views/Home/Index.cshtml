@@ -6,6 +6,7 @@
 @{ 
     ApplicationDbContext db = new ApplicationDbContext();
     var updates = db.Events.OrderByDescending(x => x.CreatedDate).ToList().Take(5);
+    var about = db.Aboutpages.SingleOrDefault();
 }
 
 
@@ -18,17 +19,28 @@
                 <div class="weltext">
                     <h2>Welcome to <span>New Zealand Nepal Society!</span></h2>
                     <p class="midtext">Namaste and Kia Ora!</p>
+
                     @try
                     {
-                    <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
+                        <p>@Html.Raw(about.Description.Substring(0, 600)) <a href="/home/about">Read More...</a></p>
                     }
                     catch
                     {
-<p>No description!</p>
+                        <p>No description!</p>
                     }
-                    
-                  
-                </div>
+
+
+                        @*@try
+                        {
+                            <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
+                        }
+                        catch
+                        {
+                            <p>No description!</p>
+                        }*@
+
+
+                    </div>
                 <div class="clearfix"></div>
                 <div class="weltext">
                     @*<div class="single-blog-post">
