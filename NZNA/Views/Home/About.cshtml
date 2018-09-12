@@ -1,4 +1,9 @@
 ﻿@model NZNA.Areas.Admin.Models.Aboutpage
+    @using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var about = db.Aboutpages.SingleOrDefault();
+}
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -14,12 +19,21 @@
                     <p class="midtext">Namaste and Kia Ora!</p>
                     @try
                     {
-                        @Model.Description
+                        <p>@Html.Raw(about.Description) </p>
+                    }
+                    catch
+                    {
+                        <p>No description!</p>
+                    }
+
+                    @*@try
+                    {
+                        @Html.Raw(Model.Description)
                     }
                     catch
                     {
                         <p>No Description</p>
-                    }
+                    }*@
 
                     @*<div class="shopping-cart-form">
             <div class="shopping-cart-form-right">

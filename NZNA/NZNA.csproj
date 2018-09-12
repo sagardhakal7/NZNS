@@ -220,6 +220,7 @@
     <Compile Include="Areas\Admin\Controllers\RelatedLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\SaugatsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SitesetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SponsorsController.cs" />
     <Compile Include="Areas\Admin\Models\Nzna.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1268,6 +1269,11 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Sponsors\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1322,6 +1328,7 @@
     <Content Include="Views\Home\AllMembers.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
     <Content Include="Views\Home\Resources.cshtml" />
+    <Content Include="Views\Home\EventDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
