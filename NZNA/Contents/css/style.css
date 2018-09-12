@@ -689,7 +689,7 @@ li {
 
 .header-info li {
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 0px;
     text-align: left;
 }
 
