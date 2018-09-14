@@ -47,6 +47,15 @@ namespace NZNA.Controllers
             return View();
         }
 
+        public ActionResult EventDetails(int id)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var eventdetails = db.Events.Find(id);
+            ViewBag.postid = Convert.ToString(id);
+            ModelState.Clear();
+            return View(eventdetails);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
 

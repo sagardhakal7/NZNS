@@ -1,4 +1,15 @@
-﻿@{
+﻿@model NZNA.Areas.Admin.Models.Event
+@using System.ComponentModel.DataAnnotations;
+@using NZNA.Models;
+
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+    var postid = ViewBag.postid;
+    //var bid = Mode;
+    var itemdetails = db.Events.Where(x => x.EventId == Model.EventId).SingleOrDefault();
+    ViewBag.Title = db.Events.Where(x => x.EventId == itemdetails.EventId).Select(x => x.Title).SingleOrDefault();
+}
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,22 +19,28 @@
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 pull-left">
                 <div class="single-blog-post">
+                    @if (itemdetails.ImageUrl != null)
+                    {
                     <div class="img-box">
                         <img src="images/resource/blog-image-5.jpg" alt="">
-                        @*<div class="date">
-                            <b>24</b> apr
-                        </div>*@
+                        @try
+                        {
+                            <div class="date">
+                                <b>@itemdetails.EventDate.Substring(0, 1)</b> @itemdetails.EventDate.Substring(3, 5)
+                            </div>
+                        }
+                        catch
+                        {
+
+                        }
+
                     </div>
+                    }
+
                     <div class="content-box">
                         <div class="content">
-                            <h3>Lates blog post with image</h3>
-                            <p>Lorem ipsum dolor sit amet, his ea unum ponderum, detracto ponderum an vim. Equidem evertitur vel ea, has ad inermis principes. Mentitum appareat conceptam id quo. Vis evertitur referrentur ad, no laoreet consetetur reformidans pro, sit habeo omnes eu. </p>
-                            <br>
-                            <p> Iisque quaeque propriae has no. Modo blandit tincidunt ne eos, diam periculis disputationi usu cu. Ea eos suscipit expetendis. Vix ea quot modus, id novum vocibus pro. Nec autem ullum albucius no, vel ne tritani omnesque omittantur. Pro fierent hendrerit assueverit et, per quod luptatum comprehensam in.</p>
-                            <br>
-                            <p> No consulatu comprehensam nam. Ferri dolore sententiae te eum, nibh dictas definitiones mea ei. Nec cu augue dicunt, est id verear labitur necessitatibus. Salutandi quaerendum ex nec.</p>
-                            <br>
-                            <p> Cu quo audire apeirian. Dolore necessitatibus sea id, nihil mandamus an ius, per recusabo interesset reprehendunt ea. In vix autem vituperatoribus, mei sint ipsum dolorem ex, quodsi vitupera</p>
+                            <h3>@itemdetails.Title</h3>
+                           @Html.Raw(itemdetails.Description)
                             <div class="bottom-box clearfix">
                                 <span class="pull-left">By  <a href="#">Admin</a></span>
                                 <ul class="pull-right share">
@@ -37,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="comment-box">
+                @*<div class="comment-box">
                     <div class="title">
                         <h2>2 Comments</h2>
                     </div>
@@ -117,7 +134,7 @@
                             <button class="btn-two" type="submit">Send</button>
                         </div>
                     </form>
-                </div>
+                </div>*@
             </div>
             <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                 @Html.Partial("_LocalBusiness")
