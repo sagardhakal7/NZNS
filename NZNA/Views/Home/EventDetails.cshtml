@@ -17,128 +17,129 @@
 <section class="blog-home sec-padding blog-page blog-details">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 pull-left">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pull-left">
                 <div class="single-blog-post">
                     @if (itemdetails.ImageUrl != null)
                     {
-                    <div class="img-box">
-                        <img src="images/resource/blog-image-5.jpg" alt="">
-                        @try
-                        {
-                            <div class="date">
-                                <b>@itemdetails.EventDate.Substring(0, 1)</b> @itemdetails.EventDate.Substring(3, 5)
-                            </div>
-                        }
-                        catch
-                        {
+                        <div class="img-box">
+                            <img src="images/resource/blog-image-5.jpg" alt="">
+                            @try
+                            {
+                                <div class="date">
+                                    <b>@itemdetails.EventDate.Substring(0, 2)</b> @itemdetails.EventDate.Substring(3, 3)
+                                </div>
+                            }
+                            catch
+                            {
 
-                        }
+                            }
 
-                    </div>
+                        </div>
                     }
 
                     <div class="content-box">
                         <div class="content">
                             <h3>@itemdetails.Title</h3>
-                           @Html.Raw(itemdetails.Description)
-                            <div class="bottom-box clearfix">
-                                <span class="pull-left">By  <a href="#">Admin</a></span>
-                                <ul class="pull-right share">
-                                    <li><span>Share: </span></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
-                            </div>
+                            @Html.Raw(itemdetails.Description)
+                            @*<div class="bottom-box clearfix">
+                            <span class="pull-left">By  <a href="#">Admin</a></span>
+                            <ul class="pull-right share">
+                                <li><span>Share: </span></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>*@
                         </div>
                     </div>
                 </div>
                 @*<div class="comment-box">
-                    <div class="title">
-                        <h2>2 Comments</h2>
-                    </div>
-                    <div class="single-comment-box">
-                        <div class="img-box">
-                            <div class="inner-box">
-                                <img src="images/resource/comment.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <h3>Jhon Chena</h3>
-                            <div class="meta-box clearfix">
-                                <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
-                                <a href="#" class="reply pull-right">Reply</a>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
+                <div class="title">
+                    <h2>2 Comments</h2>
+                </div>
+                <div class="single-comment-box">
+                    <div class="img-box">
+                        <div class="inner-box">
+                            <img src="images/resource/comment.jpg" alt="">
                         </div>
                     </div>
-                    <div class="single-comment-box reply-comment">
-                        <div class="img-box">
-                            <div class="inner-box">
-                                <img src="images/resource/comment1.jpg" alt="">
-                            </div>
+                    <div class="content-box">
+                        <h3>Jhon Chena</h3>
+                        <div class="meta-box clearfix">
+                            <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
+                            <a href="#" class="reply pull-right">Reply</a>
                         </div>
-                        <div class="content-box">
-                            <h3>Jhon Chena</h3>
-                            <div class="meta-box clearfix">
-                                <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
-                                <a href="#" class="reply pull-right">Reply</a>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
-                        </div>
-                    </div>
-                    <div class="single-comment-box">
-                        <div class="img-box">
-                            <div class="inner-box">
-                                <img src="images/resource/comment2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <h3>Jhon Chena</h3>
-                            <div class="meta-box clearfix">
-                                <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
-                                <a href="#" class="reply pull-right">Reply</a>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
-                        </div>
-                    </div>
-                    <div class="single-comment-box reply-comment">
-                        <div class="img-box">
-                            <div class="inner-box">
-                                <img src="images/resource/comment3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <h3>Jhon Chena</h3>
-                            <div class="meta-box clearfix">
-                                <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
-                                <a href="#" class="reply pull-right">Reply</a>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
-                        </div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
                     </div>
                 </div>
-                <div class="comment-form contact-content">
-                    <h2>Leave a Comment</h2>
-                    <form action="#" class="contact-form row" id="contact-page-contact-form" novalidate="novalidate">
-                        <div class="col-md-6">
-                            <input name="name" placeholder="Name" type="text">
-                            <input name="email" placeholder="Email" type="text">
-                            <input name="phone" placeholder="Phone" type="text">
+                <div class="single-comment-box reply-comment">
+                    <div class="img-box">
+                        <div class="inner-box">
+                            <img src="images/resource/comment1.jpg" alt="">
                         </div>
-                        <div class="col-md-6">
-                            <textarea name="message" placeholder="Message" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="content-box">
+                        <h3>Jhon Chena</h3>
+                        <div class="meta-box clearfix">
+                            <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
+                            <a href="#" class="reply pull-right">Reply</a>
                         </div>
-                        <div class="col-md-12">
-                            <button class="btn-two" type="submit">Send</button>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
+                    </div>
+                </div>
+                <div class="single-comment-box">
+                    <div class="img-box">
+                        <div class="inner-box">
+                            <img src="images/resource/comment2.jpg" alt="">
                         </div>
-                    </form>
-                </div>*@
+                    </div>
+                    <div class="content-box">
+                        <h3>Jhon Chena</h3>
+                        <div class="meta-box clearfix">
+                            <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
+                            <a href="#" class="reply pull-right">Reply</a>
+                        </div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
+                    </div>
+                </div>
+                <div class="single-comment-box reply-comment">
+                    <div class="img-box">
+                        <div class="inner-box">
+                            <img src="images/resource/comment3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="content-box">
+                        <h3>Jhon Chena</h3>
+                        <div class="meta-box clearfix">
+                            <span class="pull-left">24 Feb, 2015 at 2:40pm</span>
+                            <a href="#" class="reply pull-right">Reply</a>
+                        </div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lore Ipsum has been the eloi industry's standard dummy text ever since the 1500s,</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                @Html.Partial("_LocalBusiness")
+            <div class="comment-form contact-content">
+                <h2>Leave a Comment</h2>
+                <form action="#" class="contact-form row" id="contact-page-contact-form" novalidate="novalidate">
+                    <div class="col-md-6">
+                        <input name="name" placeholder="Name" type="text">
+                        <input name="email" placeholder="Email" type="text">
+                        <input name="phone" placeholder="Phone" type="text">
+                    </div>
+                    <div class="col-md-6">
+                        <textarea name="message" placeholder="Message" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn-two" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>*@
             </div>
+            @Html.Partial("_LocalBusiness")
+            @*<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+            </div>*@
         </div>
     </div>
 </section>
