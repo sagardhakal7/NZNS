@@ -5,7 +5,7 @@
     @using NZNA.Models;
 @{ 
     ApplicationDbContext db = new ApplicationDbContext();
-    var updates = db.Events.OrderByDescending(x => x.CreatedDate).ToList().Take(5);
+    var updates = db.Events.ToList().Take(5);
     var about = db.Aboutpages.SingleOrDefault();
 }
 
@@ -80,42 +80,56 @@
                    
                         @foreach (var items in updates)
                         {
-                            <div class="single-blog-post">
+                    <div class="single-blog-post">
+                        <div class="img-box">
+                            <img src="@items.ImageUrl.Replace(".jpg", "_list.jpg")" alt="image">
+                            @*<div class="overlay">
+        <div class="box">
+           <div class="content">
+                <ul>
+                    <li><a href="#"><i class="fa fa-link"></i></a></li>
+                </ul>
+            </div>
+                        </div>
+                            </div>*@
+                            <div class="date">
+                                <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
+                            </div>
+                        </div>
+                        <div class="content-box">
+                            <div class="content">
+                                <a href="#"><h3>@items.Title</h3></a>
+                                <div class="entry-meta">
+                                    <ul class="list-inline">
+                                        <li><a href="#"><i class="fa fa-user"></i>@items.EventDate</a></li>
 
-                                <div class="content-box">
-                                    <div class="content">
-                                        <a href="#"><h3>@items.Title</h3></a>
-                                        <div class="entry-meta">
-                                            <ul class="list-inline">
-                                                <li><a href="#"><i class="fa fa-user"></i>@items.EventDate</a></li>
-
-                                            </ul>
-                                        </div>
-                                        @try
-                                        {
-                                        <p>@Html.Raw(items.Description.Substring(0, 50))</p>
-                                        }
-                                        catch
-                                        {
-                                        <p>@Html.Raw(items.Description)</p>
-                                        }
-
-
-                                    </div>
-                                    <div class="bottom-box clearfix">
-                                        <a href="/home/EventDetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
-                                        <ul class="pull-right share">
-                                            <li><span>Share: </span></li>
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
+                                @try
+                                {
+                                    <p>@Html.Raw(items.Description.Substring(0, 150))</p>
+                                }
+                                catch
+                                {
+                                    <p>@Html.Raw(items.Description)</p>
+                                }
 
 
                             </div>
+                            <div class="bottom-box clearfix">
+                                <a href="/home/EventDetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
+                                @*<ul class="pull-right share">
+                                    <li><span>Share: </span></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>*@
+                            </div>
+                        </div>
+
+
+                    </div>
                         }
                    
 

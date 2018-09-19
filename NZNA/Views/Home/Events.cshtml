@@ -19,10 +19,10 @@
                     @if (items.ImageUrl != null)
                     {
                         <div class="img-box">
-                            <img src="@items.ImageUrl" alt="">
-                            @*<div class="date">
-                                <b>@</b> apr
-                            </div>*@
+                            <img src="@items.ImageUrl.Replace(".jpg","_list.jpg")" alt="">
+                            <div class="date">
+                                <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
+                            </div>
                         </div>
                     }
 
@@ -38,7 +38,7 @@
         </div>*@
                             @try
                             {
-                                <p>@Html.Raw(items.Description.Substring(0, 60))</p>
+                                <p>@Html.Raw(items.Description.Substring(0, 160))</p>
                             }
                             catch
                             {

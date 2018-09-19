@@ -1274,6 +1274,7 @@
     <Content Include="Areas\Admin\Views\Sponsors\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsors\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsors\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
