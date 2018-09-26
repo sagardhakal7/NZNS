@@ -4764,7 +4764,7 @@ footer .subscribe_us button:focus {
     position: relative;
     display: block;
     line-height: 30px;
-    padding: 10px 20px 10px 50px;
+    padding: 10px 20px 10px 20px;
     border: 0;
     text-transform: capitalize;
     color: #333333;

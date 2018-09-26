@@ -1,4 +1,9 @@
-﻿@{
+﻿@using NZNA.Models;
+@{ 
+    ApplicationDbContext db = new ApplicationDbContext();
+    var resources = db.RelatedLinks.ToList();
+}
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,37 +12,36 @@
         <div class="row">
             @Html.Partial("_Saugat")
             <div class="col-lg-6 col-md-4 col-sm-6">
-                <div class="single-blog-post">
-                    <div class="img-box">
-                        <img src="~/Contents/images/resource/blog-image-5.jpg" alt="">
-                        <div class="date">
-                            <b>24</b> apr
+                @foreach (var items in resources)
+                {
+                    <div class="single-blog-post">
+                        @if(items.ImageUrl != null)
+                        {
+                        <div class="img-box">
+                            <img src="@items.ImageUrl" alt="@items.Title">
                         </div>
-                    </div>
-                    <div class="content-box">
-                        <div class="content">
-                            <a href="#"><h3>Lates blog post with image</h3></a>
-                            <div class="entry-meta">
-                                <ul class="list-inline">
-                                    <li><a href="#"><i class="fa fa-user"></i>Jr. Macllum</a></li>
-                                    <li><a href="#"><i class="fa fa-folder-o"></i>CEO Marketing</a></li>
-                                    <li><a href="#"><i class="fa fa-comment-o"></i>0 Comments</a></li>
-                                </ul>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, his ea unum ponderum, detracto ponderum an vim. Equidem evertitur vel ea, has ad inermis principes. Mentitum appareat conceptam id quo. Vis evertitur referrentur ad, no laoreet consetetur reformidans pro, sit habeo omnes eu. </p>
-                            <div class="bottom-box clearfix">
-                                <a href="blog-single.html" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
-                                <ul class="pull-right share">
-                                    <li><span>Share: </span></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
+                        }
+                        
+                        <div class="content-box">
+                            <div class="content">
+                                <a href="@items.TitleLink"><h3>@items.Title</h3></a>
+                               
+                                <p>@Html.Raw(items.Description)</p>
+                                @*<div class="bottom-box clearfix">
+                                    <a href="blog-single.html" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
+                                    <ul class="pull-right share">
+                                        <li><span>Share: </span></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                </div>*@
                             </div>
                         </div>
                     </div>
-                </div>
+                }
+
 
 
 
