@@ -30,108 +30,74 @@
                     }
 
 
-                        @*@try
-                        {
-                            <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
-                        }
-                        catch
-                        {
-                            <p>No description!</p>
-                        }*@
+                    @*@try
+            {
+                <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
+            }
+            catch
+            {
+                <p>No description!</p>
+            }*@
 
 
-                    </div>
+                </div>
+                <div class="clearfix"></div>
                 <div class="clearfix"></div>
                 <div class="weltext">
-                    @*<div class="single-blog-post">
 
-            <div class="content-box">
-                <div class="content">
-                    <a href="#"><h3>Lates blog post with image</h3></a>
-                    <div class="entry-meta">
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-user"></i>2nd March 2017</a></li>
+                    @foreach (var items in updates)
+                    {
+                        <div class="single-blog-post" style="margin-bottom: 5px;">
 
-                        </ul>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, his ea unum ponderum, detracto ponderum an vim...</p>
+                            <div class="content-box">
 
-                </div>
-                <div class="img-box">
-                    <img src="~/Contents/images/resource/blog-image-5.jpg" alt="">
-                    <div class="date">
-                        <b>24</b> apr
-                    </div>
-                </div>
-                <div class="bottom-box clearfix">
-                    <a href="blog-single.html" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
-                    <ul class="pull-right share">
-                        <li><span>Share: </span></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+                                @if (items.ImageUrl != null)
+                                {
+                                    <div class="img-box">
+                                        <img src="@items.ImageUrl.Replace(".jpg","_list.jpg")" alt="">
+                                        <div class="date">
+                                            <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
+                                        </div>
+                                    </div>
+                                }
 
-        </div>*@
+                                <div class="content">
+                                    <a href="/home/EventDetails/@items.EventId"><h3>@items.Title</h3></a>
+                                    @*<div class="entry-meta">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-user"></i>@items.EventDate</a></li>
 
-                   
-                        @foreach (var items in updates)
-                        {
-                    <div class="single-blog-post">
-                        <div class="img-box">
-                            <img src="@items.ImageUrl.Replace(".jpg", "_list.jpg")" alt="image">
-                            @*<div class="overlay">
-        <div class="box">
-           <div class="content">
-                <ul>
-                    <li><a href="#"><i class="fa fa-link"></i></a></li>
-                </ul>
-            </div>
-                        </div>
-                            </div>*@
-                            <div class="date">
-                                <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <div class="content">
-                                <a href="#"><h3>@items.Title</h3></a>
-                                <div class="entry-meta">
-                                    <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i>@items.EventDate</a></li>
+                                        </ul>
+                                    </div>*@
+                                    @try
+                                    {
+                                        <p>@Html.Raw(items.Description.Substring(0, 150))</p>
+                                    }
+                                    catch
+                                    {
+                                        <p>@Html.Raw(items.Description)</p>
+                                    }
 
-                                    </ul>
+
                                 </div>
-                                @try
-                                {
-                                    <p>@Html.Raw(items.Description.Substring(0, 150))</p>
-                                }
-                                catch
-                                {
-                                    <p>@Html.Raw(items.Description)</p>
-                                }
+                                <div class="bottom-box clearfix">
+                                    <a href="/home/EventDetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
+                                    @*<ul class="pull-right share">
+                <li><span>Share: </span></li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>*@
+                                </div>
+                            </div>
 
 
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <a href="/home/EventDetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
-                                @*<ul class="pull-right share">
-                                    <li><span>Share: </span></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>*@
-                            </div>
                         </div>
+                        <div class="clearfix"></div>
+                        <div class="clearfix"></div>
+                    }
 
-
-                    </div>
-                        }
-                   
 
                 </div>
             </div>

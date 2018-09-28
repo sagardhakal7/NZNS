@@ -1,11 +1,13 @@
 ﻿@using NZNA.Models;
-@{ 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Resources";
+}
+@{
     ApplicationDbContext db = new ApplicationDbContext();
     var resources = db.RelatedLinks.ToList();
 }
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 
 <div class="welcome-sec">
     <div class="container">
@@ -14,29 +16,38 @@
             <div class="col-lg-6 col-md-4 col-sm-6">
                 @foreach (var items in resources)
                 {
-                    <div class="single-blog-post">
-                        @if(items.ImageUrl != null)
-                        {
-                        <div class="img-box">
-                            <img src="@items.ImageUrl" alt="@items.Title">
-                        </div>
-                        }
-                        
+                    <div class="single-blog-post" style="margin-bottom:5px;">
+
+
                         <div class="content-box">
+                            @if (items.ImageUrl != null)
+                            {
+                                <div class="img-box">
+                                    <img src="@items.ImageUrl" style="height:270px">
+                                </div>
+                            }
+                            @if (items.Address != null)
+                            {
+                                <div class="img-box">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/@items.Address" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    @*<iframe type="text/html" width="100%" height="385" src="@items.Address" frameborder="0"></iframe>*@
+                                    @*<iframe src="@items.Address"></iframe>*@
+                                </div>
+                            }
                             <div class="content">
-                                <a href="@items.TitleLink"><h3>@items.Title</h3></a>
-                               
+                                <a href="@items.TitleLink" target="_blank"><h3>@items.Title</h3></a>
+
                                 <p>@Html.Raw(items.Description)</p>
                                 @*<div class="bottom-box clearfix">
-                                    <a href="blog-single.html" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
-                                    <ul class="pull-right share">
-                                        <li><span>Share: </span></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>*@
+                                        <a href="blog-single.html" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
+                                        <ul class="pull-right share">
+                                            <li><span>Share: </span></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>*@
                             </div>
                         </div>
                     </div>

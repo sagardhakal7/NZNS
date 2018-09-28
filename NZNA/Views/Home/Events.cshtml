@@ -15,27 +15,28 @@
             <div class="col-lg-6 col-md-4 col-sm-6">
                 @foreach (var items in events)
                 {
-                <div class="single-blog-post">
-                    @if (items.ImageUrl != null)
-                    {
-                        <div class="img-box">
-                            <img src="@items.ImageUrl.Replace(".jpg","_list.jpg")" alt="">
-                            <div class="date">
-                                <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
-                            </div>
-                        </div>
-                    }
+                <div class="single-blog-post" style="margin-bottom: 5px;">
+                   
 
                     <div class="content-box">
+                        @if (items.ImageUrl != null)
+                        {
+                            <div class="img-box">
+                                <img src="@items.ImageUrl.Replace(".jpg","_list.jpg")" alt="">
+                                <div class="date">
+                                    <b>@items.EventDate.Substring(0, 2)</b> @items.EventDate.Substring(3, 3)
+                                </div>
+                            </div>
+                        }
                         <div class="content">
                             <a href="/home/eventdetails/@items.EventId"><h3>@items.Title</h3></a>
                             @*<div class="entry-meta">
-            <ul class="list-inline">
-                <li><a href="#"><i class="fa fa-user"></i>Jr. Macllum</a></li>
-                <li><a href="#"><i class="fa fa-folder-o"></i>CEO Marketing</a></li>
-                <li><a href="#"><i class="fa fa-comment-o"></i>0 Comments</a></li>
-            </ul>
-        </div>*@
+                <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-user"></i>Jr. Macllum</a></li>
+                    <li><a href="#"><i class="fa fa-folder-o"></i>CEO Marketing</a></li>
+                    <li><a href="#"><i class="fa fa-comment-o"></i>0 Comments</a></li>
+                </ul>
+            </div>*@
                             @try
                             {
                                 <p>@Html.Raw(items.Description.Substring(0, 160))</p>
@@ -48,12 +49,12 @@
                             <div class="bottom-box clearfix">
                                 <a href="/home/eventdetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
                                 @*<ul class="pull-right share">
-                                    <li><span>Share: </span></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>*@
+                    <li><span>Share: </span></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                </ul>*@
                             </div>
                         </div>
                     </div>

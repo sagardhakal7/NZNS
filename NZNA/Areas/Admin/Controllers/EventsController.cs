@@ -293,7 +293,10 @@ namespace NZNA.Areas.Admin.Controllers
 					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
 					"width=200;height=200;format=jpg;mode=max"));
 					i.Build();
-					@event.ImageUrl = imageUrl;
+                    ImageResizer.ImageJob j = new ImageResizer.ImageJob(DestinationPath + extension, DestinationPath + "_list.jpg", new ImageResizer.ResizeSettings(
+              "width=500;height=250;format=jpg;mode=crop"));
+                    j.Build();
+                    @event.ImageUrl = imageUrl;
                 }
 				                db.SaveChanges();
                 return RedirectToAction("Index");

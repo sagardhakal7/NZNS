@@ -65,6 +65,8 @@ namespace NZNA.Areas.Admin.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string LinkUrl { get; set; }
+        [Display(Name = "Full Name")]
+        public string ImageUrl { get; set; }
     }
 
     public class Member : MandatoryFields
@@ -90,6 +92,7 @@ namespace NZNA.Areas.Admin.Models
         public int CurrentExComMemberId { get; set; }
         public string Name { get; set; }
         public string Position { get; set; }
+        public string number { get; set; }
         public string ImageUrl { get; set; }
         public string Year { get; set; }
         public string Linkedin { get; set; }
@@ -100,6 +103,7 @@ namespace NZNA.Areas.Admin.Models
         public string Address { get; set; }
         public string DOB { get; set; }
         public string UniqueId { get; set; }
+
     }
 
     public class PastExComMember : MandatoryFields

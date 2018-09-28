@@ -19,38 +19,39 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pull-left">
                 <div class="single-blog-post">
-                    @if (itemdetails.ImageUrl != null)
-                    {
-                        <div class="img-box">
-                            <img src="@itemdetails.ImageUrl" alt="">
-                            @try
-                            {
-                                <div class="date">
-                                    <b>@itemdetails.EventDate.Substring(0, 2)</b> @itemdetails.EventDate.Substring(3, 3)
-                                </div>
-                            }
-                            catch
-                            {
-
-                            }
-
-                        </div>
-                    }
-
+                  
                     <div class="content-box">
+                        @if (itemdetails.ImageUrl != null)
+                        {
+                            <div class="img-box">
+                                <img src="@itemdetails.ImageUrl" alt="">
+                                @try
+                                {
+                                    <div class="date">
+                                        <b>@itemdetails.EventDate.Substring(0, 2)</b> @itemdetails.EventDate.Substring(3, 3)
+                                    </div>
+                                }
+                                catch
+                                {
+
+                                }
+
+                            </div>
+                        }
+
                         <div class="content">
                             <h3>@itemdetails.Title</h3>
                             @Html.Raw(itemdetails.Description)
                             @*<div class="bottom-box clearfix">
-                            <span class="pull-left">By  <a href="#">Admin</a></span>
-                            <ul class="pull-right share">
-                                <li><span>Share: </span></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>*@
+                <span class="pull-left">By  <a href="#">Admin</a></span>
+                <ul class="pull-right share">
+                    <li><span>Share: </span></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>*@
                         </div>
                     </div>
                 </div>

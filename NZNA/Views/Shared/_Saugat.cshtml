@@ -17,7 +17,7 @@
                 {
                     <article class="post">
                         <figure class="post-thumb">
-                            <a href="#"><img src="" alt=""></a>
+                            <a href="@items.LinkUrl" target="_blank"><img src="@items.ImageUrl" alt=""></a>
                         </figure>
                         <h4><a href="#"><b>@items.Title</b></a></h4>
                         <div class="post-info">
@@ -26,6 +26,7 @@
                             </div>
                         </div>
                     </article>
+                    <div class="clearfix"></div>
                 }
             }
             catch
@@ -60,11 +61,12 @@
                 {
                     <article class="post">
                         <figure class="post-thumb">
-                            <a href="#"><img src="@item.ImageUrl" alt=""></a>
+                            <a href="/home/EventDetails/@item.EventId"><img src="@item.ImageUrl" alt="" style="height: 55px;"></a>
                         </figure>
-                        <h4><a href="#">@item.Title</a></h4>
+                        <h4><a href="/home/EventDetails/@item.EventId">@item.Title</a></h4>
                         <div class="post-info">@item.EventDate</div>
                     </article>
+                    <div class="clearfix"></div>
                 }
             }
             catch

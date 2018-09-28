@@ -7,7 +7,7 @@
 @*<h2>Edit</h2>*@
 
 
-										@using (Html.BeginForm()) 
+														@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 	@Html.HiddenFor(model => model.CreatedBy)
@@ -59,9 +59,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LinkUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-						  
-					@Html.EditorFor(model => model.LinkUrl, new { htmlAttributes = new { @class = "form-control" } })
-				                @Html.ValidationMessageFor(model => model.LinkUrl, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.LinkUrl, new { htmlAttributes = new { @class = "form-control" } })
+                <input name="LinkUrl" id="LinkUrl" class="form-control" type="file" />
+                @Html.ValidationMessageFor(model => model.LinkUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+									@Html.HiddenFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+					<input name="ImageUrl" id="ImageUrlKo" class="form-control" type="file" />
+				                @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
             </div>
         </div>
 

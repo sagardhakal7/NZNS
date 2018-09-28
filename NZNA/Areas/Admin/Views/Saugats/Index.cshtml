@@ -47,6 +47,11 @@
             @Html.DisplayNameFor(model => model.First().LinkUrl)
 			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
         </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.First().ImageUrl)
+			@Html.ActionLink("X", "Index",new { SortingOrder = ViewBag.SortingName,FilterValue = ViewBag.FilterValue})
+        </th>
         <th></th>
     </tr>
  </thead>
@@ -62,6 +67,18 @@
 	       
 		<td>
 		   				@Html.DisplayFor(modelItem => item.LinkUrl)
+		           </td>
+	 
+	       
+		<td>
+		   			  @if (item.ImageUrl != null)
+			  {
+					<div class="magnific-popup-wrap col-xs-6 col-md-3">
+						<a class="zooming" href="@item.ImageUrl" title="Image title here">
+							<img src="@item.ImageUrl.Replace(".jpg","_thumb.jpg")" alt="Image" class="mfp-fade item-gallery img-responsive">
+						</a>
+					</div>
+              }
 		           </td>
 	 
         <td>

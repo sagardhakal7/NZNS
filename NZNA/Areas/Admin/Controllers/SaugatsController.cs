@@ -31,6 +31,7 @@ namespace NZNA.Areas.Admin.Controllers
 															ViewBag.SortingTitle = String.IsNullOrEmpty(sortingOrder) ? "Title" : "";
 				            												ViewBag.SortingDescription = String.IsNullOrEmpty(sortingOrder) ? "Description" : "";
 													            																					ViewBag.SortingLinkUrl = String.IsNullOrEmpty(sortingOrder) ? "LinkUrl" : "";
+				            																					ViewBag.SortingImageUrl = String.IsNullOrEmpty(sortingOrder) ? "ImageUrl" : "";
 				            			
 			
 			var items = from item in db.Saugats select item;
@@ -52,7 +53,10 @@ namespace NZNA.Areas.Admin.Controllers
 													
 															item.Description.ToUpper().Contains(searchData.ToUpper()) ||
 																				
-																								item.LinkUrl.ToUpper().Contains(searchData.ToUpper()));
+													
+															item.LinkUrl.ToUpper().Contains(searchData.ToUpper()) ||
+																				
+																								item.ImageUrl.ToUpper().Contains(searchData.ToUpper()));
 																					
 						}
 			ViewBag.FilterValue = searchData;
@@ -66,6 +70,9 @@ namespace NZNA.Areas.Admin.Controllers
                     					break;
             			case "LinkUrl":
 											items = items.OrderByDescending(item => item.LinkUrl);
+                    					break;
+            			case "ImageUrl":
+											items = items.OrderByDescending(item => item.ImageUrl);
                     					break;
             			default:
                     items = items.OrderBy(item => item.Title);
@@ -118,7 +125,7 @@ namespace NZNA.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
 					[ValidateInput(false)] 
 		
-        			public ActionResult Create([Bind(Include = "SaugatId,Title,Description,LinkUrl,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Saugat saugat, HttpPostedFileBase LinkUrl)
+        			public ActionResult Create([Bind(Include = "SaugatId,Title,Description,LinkUrl,ImageUrl,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Saugat saugat, HttpPostedFileBase ImageUrl, HttpPostedFileBase LinkUrl)
 		
         {
             if (ModelState.IsValid)
@@ -126,9 +133,37 @@ namespace NZNA.Areas.Admin.Controllers
 					db.Entry(saugat).State = EntityState.Added;
 					saugat.CreatedBy = User.Identity.GetUserId();
                     saugat.CreatedDate = DateTime.Now;
-        		 if (LinkUrl != null && LinkUrl.ContentLength > 0)
+               
+			 if (ImageUrl != null)
                 {
-                    string pathToCreate = "~/UploadedDocuments/Saugat";
+                    string pathToCreate = "~/Images/saugat";
+                    if (!Directory.Exists(Server.MapPath(pathToCreate)))
+                    {
+                        //Now you know it is ok, create it
+                        Directory.CreateDirectory(Server.MapPath(pathToCreate));
+                    }
+                    string extension = Path.GetExtension(ImageUrl.FileName);
+                    string fileName = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                    string id = Guid.NewGuid().ToString();
+                    string imageUrl = "/Images/saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+
+                    ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
+                    string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
+                    DestinationPath += "\\" + fileName + id ;
+					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
+                 "width=200;height=200;format=jpg;mode=max"));
+					i.Build();
+					
+					saugat.ImageUrl = imageUrl;
+	                    
+						db.Saugats.Add(saugat);
+
+                }
+               
+
+               if (LinkUrl != null)
+                {
+                    string pathToCreate = "~/Documents/Saugat";
                     if (!Directory.Exists(Server.MapPath(pathToCreate)))
                     {
                         //Now you know it is ok, create it
@@ -137,19 +172,12 @@ namespace NZNA.Areas.Admin.Controllers
                     string extension = Path.GetExtension(LinkUrl.FileName);
                     string fileName = Path.GetFileNameWithoutExtension(LinkUrl.FileName);
                     string id = Guid.NewGuid().ToString();
-                    string linkurl = "/UploadedDocuments/Saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+                    string LinkUrlToSave = "/Documents/Saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
                     LinkUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
-                    // extract only the filename
-                    string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
-                    DestinationPath += "\\" + fileName + id;
-                    // store the file inside ~/App_Data/uploads folder
-                    saugat.LinkUrl = linkurl;
-
-                    db.Saugats.Add(saugat);
-
+                    saugat.LinkUrl = LinkUrlToSave;
                 }
+               
                 db.Saugats.Add(saugat);
-		
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -189,7 +217,7 @@ namespace NZNA.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
 					[ValidateInput(false)] 
 		
-				public ActionResult Edit([Bind(Include = "SaugatId,Title,Description,LinkUrl,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Saugat saugat, HttpPostedFileBase LinkUrl)
+					public ActionResult Edit([Bind(Include = "SaugatId,Title,Description,LinkUrl,ImageUrl,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,DelFlg")] Saugat saugat,HttpPostedFileBase ImageUrl, HttpPostedFileBase LinkUrl)
 		
 		
         {
@@ -199,9 +227,31 @@ namespace NZNA.Areas.Admin.Controllers
 				
 				saugat.ModifiedBy = User.Identity.GetUserId();
                     saugat.ModifiedDate = DateTime.Now;
-                if (LinkUrl != null && LinkUrl.ContentLength > 0)
+				       
+				if (ImageUrl != null)
                 {
-                    string pathToCreate = "~/UploadedDocuments/Saugat";
+                    string pathToCreate = "~/Images/saugat";
+                    if (!Directory.Exists(Server.MapPath(pathToCreate)))
+                    {
+                        //Now you know it is ok, create it
+                        Directory.CreateDirectory(Server.MapPath(pathToCreate));
+                    }
+                    string extension = Path.GetExtension(ImageUrl.FileName);
+                    string fileName = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                    string id = Guid.NewGuid().ToString();
+                    string imageUrl = "/Images/saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+
+                    ImageUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
+					string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
+                    DestinationPath += "\\" + fileName + id ;
+					ImageResizer.ImageJob i = new ImageResizer.ImageJob(DestinationPath + extension , DestinationPath + "_thumb.jpg" , new ImageResizer.ResizeSettings(
+					"width=200;height=200;format=jpg;mode=max"));
+					i.Build();
+					saugat.ImageUrl = imageUrl;
+                }
+                if(LinkUrl != null)
+                {
+                    string pathToCreate = "~/Documents/Saugat";
                     if (!Directory.Exists(Server.MapPath(pathToCreate)))
                     {
                         //Now you know it is ok, create it
@@ -210,18 +260,12 @@ namespace NZNA.Areas.Admin.Controllers
                     string extension = Path.GetExtension(LinkUrl.FileName);
                     string fileName = Path.GetFileNameWithoutExtension(LinkUrl.FileName);
                     string id = Guid.NewGuid().ToString();
-                    string linkurl = "/UploadedDocuments/Saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
+                    string LinkUrlToSave = "/Documents/Saugat/" + fileName + "" + /*main.MainId.ToString()*/ id + extension;
                     LinkUrl.SaveAs(Path.Combine(Server.MapPath(pathToCreate), fileName + "" + /*main.MainId.ToString()*/id + extension));
-                    // extract only the filename
-                    string DestinationPath = Path.Combine(Server.MapPath(pathToCreate));
-                    DestinationPath += "\\" + fileName + id;
-                    // store the file inside ~/App_Data/uploads folder
-                    saugat.LinkUrl = linkurl;
-
-                    db.Saugats.Add(saugat);
-
+                    saugat.LinkUrl = LinkUrlToSave;
                 }
-                db.SaveChanges();
+                db.Saugats.Add(saugat);
+				                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(saugat);

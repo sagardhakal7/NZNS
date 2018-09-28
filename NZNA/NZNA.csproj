@@ -212,6 +212,7 @@
     <Compile Include="Areas\Admin\Controllers\AlbumsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CurrentExComMembersController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GalleriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembersController.cs" />
@@ -1222,11 +1223,6 @@
     <Content Include="Areas\Admin\Views\Aboutpages\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Aboutpages\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Aboutpages\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Saugats\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Saugats\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Saugats\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Saugats\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Saugats\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Members\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Members\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Members\Details.cshtml" />
@@ -1274,6 +1270,16 @@
     <Content Include="Areas\Admin\Views\Sponsors\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsors\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsors\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CurrentExComMembers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CurrentExComMembers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CurrentExComMembers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CurrentExComMembers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CurrentExComMembers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Saugats\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Saugats\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Saugats\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Saugats\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Saugats\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
