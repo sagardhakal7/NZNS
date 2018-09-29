@@ -2,28 +2,53 @@
 @{ 
     ApplicationDbContext db = new ApplicationDbContext();
     var sponsors = db.Sponsors.ToList();
+    var mainsponsor = db.Mainsponsors.OrderByDescending(x=>x.CreatedDate).ToList().Take(3);
 }
 <div class="col-lg-3 col-md-4 col-sm-6">
     <aside class="sidebar">
+        @if(mainsponsor.Count() > 0)
+        {
         <div class="widget sidebar-widget styled-nav">
             <div class="sidebar-title">
-                <h2>Local Businesses</h2>
+                <h2>Main Sponsors</h2>
             </div>
-            <nav class="nav-outer">
-                <ul>
-                    @foreach (var items in sponsors)
-                    {
-                        <li>
-                            <a class="hvr-shutter-in-horizontal" href="#">
-                                <b>@items.Name</b> <br /> Phone: @items.Phone
-                            </a>
-                        </li>
-                    }
+            @foreach (var items in mainsponsor)
+            {
+                <div class="contactinfo-widget">
+                    <div class="sidecontact">
+                        <img src="@items.ImageUrl" alt="Sponsor" />
+                        <img src="@items.ImageUrl" alt="Sponsor" />
+                    </div>
+                    <div class="wiget-con-info">
+                        <p>@items.Title</p>
+                        <h3>@items.Phone</h3>
+                    </div>
+                </div>
+            }
 
-
-                </ul>
-            </nav>
         </div>
+        }
+        
+
+            <div class="widget sidebar-widget styled-nav">
+                <div class="sidebar-title">
+                    <h2>Local Businesses</h2>
+                </div>
+                <nav class="nav-outer">
+                    <ul>
+                        @foreach (var items in sponsors)
+                        {
+                            <li>
+                                <a class="hvr-shutter-in-horizontal" href="#">
+                                    <b>@items.Name</b> <br /> Phone: @items.Phone
+                                </a>
+                            </li>
+                        }
+
+
+                    </ul>
+                </nav>
+            </div>
     </aside>
 
 </div>

@@ -210,11 +210,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutpagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\AlbumsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AnnouncementsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrentExComMembersController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GalleriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MainsponsorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembersController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PastExComMembersController.cs" />
@@ -236,6 +238,10 @@
     <Compile Include="Migrations\201808050114474_initial.cs" />
     <Compile Include="Migrations\201808050114474_initial.Designer.cs">
       <DependentUpon>201808050114474_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809282139432_newdb.cs" />
+    <Compile Include="Migrations\201809282139432_newdb.Designer.cs">
+      <DependentUpon>201809282139432_newdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1280,6 +1286,16 @@
     <Content Include="Areas\Admin\Views\Saugats\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Saugats\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Saugats\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Announcements\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Announcements\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Announcements\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Announcements\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Announcements\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainsponsors\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainsponsors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainsponsors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainsponsors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainsponsors\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1355,6 +1371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808050114474_initial.resx">
       <DependentUpon>201808050114474_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809282139432_newdb.resx">
+      <DependentUpon>201809282139432_newdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

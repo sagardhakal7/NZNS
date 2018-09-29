@@ -39,11 +39,11 @@
             </div>*@
                             @try
                             {
-                                <p>@Html.Raw(items.Description.Substring(0, 160))</p>
+                                <p>@Html.Raw(items.Description.Substring(0, 250)) ....</p>
                             }
                             catch
                             {
-                                <p>@Html.Raw(items.Description)</p>
+                                <p>@Html.Raw(items.Description) ....</p>
                             }
 
                             <div class="bottom-box clearfix">

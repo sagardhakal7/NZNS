@@ -1537,7 +1537,7 @@ li {
     top: 0;
     z-index: 99;
     pointer-events: none;
-    background: rgba(0, 0, 0, 0.5);
+    /*background: rgba(0, 0, 0, 0.5);*/
 }
 
 .slidebtns a {
@@ -1624,7 +1624,7 @@ li {
 ***/
 
 .welcome-sec {
-    padding: 80px 0 80px;
+    padding: 20px 0 20px;
 }
 
 .awards-box {
@@ -2131,18 +2131,18 @@ li {
 
 .single-testm {
     border: 1px solid #0d1476;
-    padding: 20px 20px 20px 80px;
+    padding: 0px 0px 0px 0px;
 }
 
 .client-image {
-    background: #fff;
-    border: 1px dashed #0d1476;
-    left: 15px;
-    margin-top: -56px;
-    padding: 5px;
+    /*background: #fff;
+    border: 1px dashed #0d1476;*/
+    left: 35px;
+    margin-top: 25px;
+    padding: 0px;
     position: absolute;
-    top: 50%;
-    border-radius: 100%;
+    /*top: 50%;
+    border-radius: 100%;*/
 }
 
 .client-image img {

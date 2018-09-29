@@ -1,18 +1,43 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@model NZNA.Areas.Admin.Models.Aboutpage
-    @using NZNA.Models;
-@{ 
+@*@model NZNA.Areas.Admin.Models.Aboutpage*@
+@using NZNA.Models;
+
+@{
     ApplicationDbContext db = new ApplicationDbContext();
     var updates = db.Events.ToList().Take(5);
     var about = db.Aboutpages.SingleOrDefault();
+    var announcement = db.Announcements.SingleOrDefault();
 }
 
 
-  @Html.Partial("_banner")
+@Html.Partial("_banner")
+
 <div class="welcome-sec">
+  
     <div class="container">
+        @if (announcement != null)
+        {
+            <div class="weltext" style="margin-bottom: 20px;">
+                <div class="single-testm">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="client-image"><i class="fa fa-exclamation" style="font-size: 125px;color: #c52222;"></i></div>
+                        </div>
+                      
+                            <div class="col-md-11">
+                                <h4 style="color: #c52222;">Important Announcement</h4>
+                                <p>@Html.Raw(announcement.Description)</p>
+                            </div>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
         <div class="row">
             @Html.Partial("_Saugat")
             <div class="col-lg-6 col-md-4 col-sm-6">
@@ -31,18 +56,20 @@
 
 
                     @*@try
-            {
-                <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
-            }
-            catch
-            {
-                <p>No description!</p>
-            }*@
+                    {
+                        <p>@Html.Raw(Model.Description.Substring(0, 350)) <a href="/home/about">Read More...</a></p>
+                    }
+                    catch
+                    {
+                        <p>No description!</p>
+                    }*@
 
 
                 </div>
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
+
+
                 <div class="weltext">
 
                     @foreach (var items in updates)
@@ -71,11 +98,11 @@
                                     </div>*@
                                     @try
                                     {
-                                        <p>@Html.Raw(items.Description.Substring(0, 150))</p>
+                                        <p>@Html.Raw(items.Description.Substring(0, 250)) ....</p>
                                     }
                                     catch
                                     {
-                                        <p>@Html.Raw(items.Description)</p>
+                                        <p>@Html.Raw(items.Description) ....</p>
                                     }
 
 
@@ -83,12 +110,12 @@
                                 <div class="bottom-box clearfix">
                                     <a href="/home/EventDetails/@items.EventId" class="blogbtn">Read More &nbsp;<i class="icon fa fa-long-arrow-right"></i></a>
                                     @*<ul class="pull-right share">
-                <li><span>Share: </span></li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            </ul>*@
+                                        <li><span>Share: </span></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>*@
                                 </div>
                             </div>
 
@@ -103,9 +130,9 @@
             </div>
 
             @Html.Partial("_LocalBusiness")
-            
+
         </div>
-        
+
     </div>
 
 </div>

@@ -8,24 +8,654 @@
     ViewBag.Title = "Past Members";
 }
 
-<section class="cart-page-area sec-padding">
+<div class="welcome-sec">
+
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="cart-page">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="t-center">Year</th>
-                                    <th class="t-center">Position</th>
-                                    <th class="t-center">Name</th>
-                                 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach(var items in pastmember)
-                                {
+            @Html.Partial("_Saugat")
+            <div class="col-sm-6">
+                <div id="latest">
+                    <div class="tut-big-box">
+                        <div class="tut-item">
+                            <h4>July 2016 - Jan 2017</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Manohar Lal Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Dinesh khadka</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Binod Bhaukajee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mrs. Archana Shrestha Bhuju</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Indra Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs.Prabha Upreti</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Laxman Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Pritika Shrestha Gauli</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Sujan Gurung</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2014-2016</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Uddhav Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Dr. Nabin Ranjitkar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Dr. Santosh Bhandari</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Daya Nidhi Gautam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Indra Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Dr Achyut Aryal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Binod Prasad Acharya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Balram Khanal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Priyangu Dhungel</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2012-2014</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Uddhav Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Dr. Nabin Ranjitkar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Dr. Santosh Bhandari</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Nitesh Linkha Rai</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Bimala Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Amit Sapkota</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Ananda Dhungel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Priyangu Dhungel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Sabina Ranjitkar</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2010-2012</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mrs. Shanta Bhattu</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mrs. Jagamaya Shrestha Ranjit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mrs. Leena Gautam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mrs. Meena Adhikari Bhattarai</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Achala Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Shaurya Bhattarai</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Sajana Thapa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Sabina Ranjitkar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Tanka Gautam/ Mr. Uttam Pradhan( From November 2010)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2008-2010</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Dr. Mahendra Giri</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pitambar Dahal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Laxman Paudel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mrs. Shantwona Baidya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Dipendra KC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Akash Gyawali</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Kavi Maharjan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Robin Rimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Shaurya Bhattarai</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2006-2008</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Manohar Lal Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pitambar Dahal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Dr. Giri Raj Kattel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Dinesh Khadka</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Achala Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Janaki Giri</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Madan Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Pratik Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Sheila Gyawali</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2006 March - September Adhoc committee</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td>Mr. Indra Gyawali, Mr. Shyam Gopal Madhikarmy and Ms Prapti Gautam</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2005-2007</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pradip Baisyet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Laxman Paudel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Dinesh Acharya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Indra Prasad Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Dinesh Khadka</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Ms. Prapti Gautam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Dr. Nirmala Giri</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Shailesh Vaidya</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">The committee resigned on 6th March 2006.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2003-2005</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pradip Baisyet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Radha Krishna Karki</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Indra Prasad Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Mina Paudel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Dinesh Acharya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Lalita Aryal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Praveen Man Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Uttam Pradhan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2002-2003</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pradip Baisyet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Uddhav Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Bijay Pant</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Nirmal KC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Bimala Pokhrel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Bhuvan Paudel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Chakra Bahadur Chand</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Daisy Shrestha</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2001-2002</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. Pradip Baisyet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Uddhav Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mrs. Lila Devkota</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Ms. Samjhana Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Bedendra Adhikari</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Bhola Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Bijaya Regmi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Janaki Giri</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>2000-2001</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mrs. Kiran Bhandari</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Radha Krishna Karki</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Uddhav Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Dilu Kumari Rimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Ram Prasad Subedi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Ruby Pandey</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Shreedhar Basnyat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Uttam Pradhan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>1999-2000</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Udayananda Bajracharya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mrs. Janaki Giri</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Radha Krishna Karki</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mr. Bikash Prasad Koirala</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mrs. Dilu Kumari Rimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Ajit Thapa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Binod Parajuli</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Devendra Wagle</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Obi Khanal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>1998-1999</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Tara Prasad Adhikary</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Dr. Daya Nidhi Pankaj</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Vacant</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Mrs. Rachana Pradhan Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Sundar Pradhan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Ashok Acharya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Kamal Prasad Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr.Rajan Khati</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Shanta Bhattu</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>1997-1998</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Jog Prasad Limbu</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr. K.B. Malla</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Babu Raja Maharjan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joint Secretary</td>
+                                        <td>Dr. Amir Ratna Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Manohar Tiwari</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Dr. Bhupendra Gurung</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Dil kumari Rimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Kamal Shrestha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mrs. Shanta Bhattu</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">New Zealand Nepal friendship society and Everest Kiwi association merged together and then society is named as New Zealand Nepal Society Inc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>1995-1997 (New Zealand Nepal friendship society)</h4>
+                            <table class="table table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;">President</td>
+                                        <td>Mr. Jog Prasad Limbu</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vice President</td>
+                                        <td>Mr Krishna Bahadur Malla</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretary</td>
+                                        <td>Mr. Yuva Raj Adhikary/ Mr. Babu Raja Maharjan from 20 January 1996</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Treasurer</td>
+                                        <td>Mr. Binod Parajuli</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Dhruba Karki</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Gyanendra Basnet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member</td>
+                                        <td>Mr. Vidya Basnet/ Mr. Bikash Koirala from 7 October 1995</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="cart-page">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="t-center">Year</th>
+                                <th class="t-center">Position</th>
+                                <th class="t-center">Name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var items in pastmember)
+                            {
                                 <tr>
                                     <td class="t-center">
                                         @items.Year
@@ -35,39 +665,40 @@
                                     <td class="t-center name"><a href="#">@items.Name</a></td>
 
                                 </tr>
-                                }
-                                
-                                
+                            }
 
-                            </tbody>
-                        </table>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+                <div class="table-button-area">
+                    <div class="table-button-left">
+                        <div class="button-area">
+                            <button class="button" type="button">Previous Page</button>
+                        </div>
                     </div>
-                    <div class="clearfix"></div>
-                    <div class="table-button-area">
-                        <div class="table-button-left">
-                            <div class="button-area">
-                                <button class="button" type="button">Previous Page</button>
-                            </div>
-                        </div>
-                        <div class="table-button-right">
-                            <ul>
-                                <li>
-                                    <div class="button-area">
-                                        <button class="button" type="button">Next Page</button>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="button-area">
-                                        <button class="button" type="button">Last Page</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="table-button-right">
+                        <ul>
+                            <li>
+                                <div class="button-area">
+                                    <button class="button" type="button">Next Page</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="button-area">
+                                    <button class="button" type="button">Last Page</button>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </div>*@
             </div>
+            @Html.Partial("_LocalBusiness")
         </div>
-        
+
     </div>
-</section>
+    </div>
 

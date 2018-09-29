@@ -59,6 +59,21 @@ namespace NZNA.Areas.Admin.Models
         public string ImageUrl { get; set; }
     }
 
+    public class Announcement : MandatoryFields
+    {
+        public int AnnouncementId { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class Mainsponsor : MandatoryFields
+    {
+        public int MainsponsorId { get; set; }
+        public string ImageUrl { get; set; }
+        public string Title { get; set; }
+        public string Phone { get; set; }
+    }
+
+
     public class Saugat : MandatoryFields
     {
         public int SaugatId { get; set; }
